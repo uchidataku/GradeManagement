@@ -3,8 +3,8 @@
     <div class="inner">
       <h3 class="masthead-brand">GradeManagement</h3>
       <nav class="nav nav-masthead justify-content-center">
-        <a class="nav-link" href="#">新規登録</a>
-        <a class="nav-link" href="#">ログイン</a>
+        <li class="nav-link"><%= link_to "新規登録", new_user_registration_path %></li>
+        <li class="nav-link"><%= link_to "ログイン", new_user_session_path %></li>
       </nav>
     </div>
   </header>
@@ -12,8 +12,8 @@
     <h2 class="cover-heading">GradeManagementへようこそ</h2>
     <p class="lead"></p>
     <p class="lead">
-      <a href="#" class="btn btn-lg btn-secondary">新規登録</a>
-      <a href="#" class="btn btn-lg btn-secondary">ログイン</a>
+      <li class="btn btn-lg btn-primary"><%= link_to "新規登録", new_user_registration_path %></li>
+      <li class="btn btn-lg btn-primary"><%= link_to "ログイン", new_user_session_path %></li>
     </p>
   </main>
   <footer class="mastfoot mt-auto">
