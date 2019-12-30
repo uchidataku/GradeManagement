@@ -1,29 +1,54 @@
-<h2>Sign up</h2>
+<% provide(:title, "新規登録") %>
+<h2>新規登録</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
+    <%= f.label :cram_schoolhouse_id, "校舎名" %><br />
+    <%= f.select :cram_schoolhouse_id, [["鶴川校", 1],
+                                        ["町田鶴間校", 2],
+                                        ["淵野辺校", 3],
+                                        ["新百合ヶ丘校", 4],
+                                        ["南林間校", 5],
+                                        ["南橋本校", 6],
+                                        ["座間校", 7],
+                                        ["湘南台校", 8],
+                                        ["南大谷校", 9],
+                                        ["本厚木校", 10]] %><br />
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+    <%= f.label :name, "名前" %><br />
+    <%= f.text_field :name, autofocus: true, autocomplete: "name" %><br />
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
+    <%= f.label :school_name, "学校" %><br />
+    <%= f.text_field :school_name %><br />
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+    <%= f.label :school_year, "学年" %><br />
+    <%= f.select :school_year,[["小学1年", 1],
+                              ["小学2年", 2],
+                              ["小学3年", 3],
+                              ["小学4年", 4],
+                              ["小学5年", 5],
+                              ["小学6年", 6],
+                              ["中学1年", 7],
+                              ["中学2年", 8],
+                              ["中学3年", 9]] %><br />
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
+    <%= f.label :sex, "性別" %><br />
+    <%= f.radio_button :sex, "男", checked: true %>男<br />
+    <%= f.radio_button :sex, "女" %>女<br />
+
+    <%= f.label :birthday, "生年月日" %><br />
+    <%= f.date_select :birthday, {discard: true, start_year: 2000, end_year: 2020} %><br />
+
+    <%= f.label :email, "メールアドレス" %><br />
+    <%= f.email_field :email, autocomplete: "email" %><br />
+
+    <%= f.label :password, "パスワード" %><br />
+    <%= f.password_field :password, autocomplete: "new-password" %><br />
+
+    <%= f.label :password_confirmation, "パスワード（再入力）" %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" %><br />
+
+    <%= f.submit "新規登録" %>
 <% end %>
 
-<%= render "users/shared/links" %>
+<%= link_to "ログインはこちら", new_user_session_path %>
