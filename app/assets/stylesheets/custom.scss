@@ -1,0 +1,58 @@
+@import "bootstrap";
+
+#error_explanation{
+  color: #f33;
+  h2{
+    font-size: 20px;
+  }
+  ul{
+    list-style-type: none;
+  }
+}
+
+.registration_title{
+  color: #ddd;
+  padding: 15px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.registration_box{
+  margin-bottom: 10px;
+}
+
+.item_leftbox{
+  color: #fff;
+  padding: 15px;
+  border-radius: 10px/10px;
+}
+
+.item {
+  padding-top: 8px;
+  h5 {
+    margin-right: 7px;
+    display: inline-block;
+  }
+  small {
+    color: #f00;
+  }
+}
+
+.input_rightbox{
+  color: #fff;
+  text-align: left;
+  padding: 15px;
+  select {
+    margin-top: 8px;
+  }
+}
+
+@media (max-width: 768px) {
+  .input_rightbox{
+    text-align: center;
+  }
+}
+
+.link {
+  margin: 15px;
+}

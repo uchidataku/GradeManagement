@@ -8,10 +8,14 @@ ja:
           has_many: "%{record}が存在しているので削除できません"
     attributes:
       user:
-        name: 名前
+        firstname_kanji: 姓(漢字)
+        lastname_kanji: 名(漢字)
+        firstname_kana: 姓(カナ)
+        lastname_kana: 名(カナ)
         school_name: 学校
         school_year: 学年
         birthday: 生年月日
+        term: 学期
         sex: 性別
   date:
     abbr_day_names:
