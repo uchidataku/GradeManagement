@@ -6,4 +6,7 @@ Rails.application.routes.draw do
          sessions: 'users/sessions',
         passwords: 'users/passwords'
   }
+  devise_scope :user do
+    get '/users/:id', to: 'users#show', as: :user
+  end
 end

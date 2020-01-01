@@ -14,4 +14,12 @@ class User < ApplicationRecord
                 uniqueness: { case_sensitive: false }
   validates :school_name, presence: true, length: { maximum: 50 }
   validates :school_year, presence: true
+
+  def full_name_kanji
+    "#{firstname_kanji} #{lastname_kanji}"
+  end
+
+  def full_name_kana
+    "#{firstname_kana} #{lastname_kana}"
+  end
 end
