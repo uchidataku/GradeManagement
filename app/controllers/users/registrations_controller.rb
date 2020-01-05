@@ -42,7 +42,18 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_up_params
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:cram_schoolhouse_id, :firstname_kanji, :lastname_kanji, :firstname_kana, :lastname_kana, :school_name, :school_year, :term, :sex, :birthday])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [
+      :cram_schoolhouse_id,
+      :firstname_kanji,
+      :lastname_kanji,
+      :firstname_kana,
+      :lastname_kana,
+      :school_name,
+      :school_year,
+      :term,
+      :sex,
+      :birthday
+    ])
   end
 
   # If you have extra params to permit, append them to the sanitizer.

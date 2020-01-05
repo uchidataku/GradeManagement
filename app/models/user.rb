@@ -8,10 +8,10 @@ class User < ApplicationRecord
   validates :lastname_kanji, presence: true, length: { maximum: 50 }
   validates :firstname_kana, presence: true, length: { maximum: 50 }
   validates :lastname_kana, presence: true, length: { maximum: 50 }
-    VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/ii
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/ii
   validates :email, length: { maximum: 255 },
                     format: { with: VALID_EMAIL_REGEX },
-                uniqueness: { case_sensitive: false }
+                    uniqueness: { case_sensitive: false }
   validates :school_name, presence: true, length: { maximum: 50 }
   validates :school_year, presence: true
 
