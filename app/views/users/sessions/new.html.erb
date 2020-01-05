@@ -4,9 +4,6 @@
   <p>ログインに必要な情報を入力してください。</p>
 </div>
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="error_messages">
-    <%= render 'users/shared/flash_messages' %>
-  </div>
   <div class="row justify-content-center login_box">
     <div class="col-xs-12 col-md-5 item_leftbox">
       <div class="item">
