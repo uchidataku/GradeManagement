@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  belongs_to :cram_schoolhouse, class_name: "CramSchoolhouse", foreign_key: "cram_schoolhouse_id"
+  belongs_to :cram_schoolhouse, class_name: "CramSchoolhouse", foreign_key: "cram_schoolhouse_id", optional: true
   validates :firstname_kanji, presence: true, length: { maximum: 50 }
   validates :lastname_kanji, presence: true, length: { maximum: 50 }
   validates :firstname_kana, presence: true, length: { maximum: 50 }
