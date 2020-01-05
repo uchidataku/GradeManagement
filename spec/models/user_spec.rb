@@ -34,9 +34,9 @@ RSpec.describe User, type: :model do
   end
 
   it "学年がなければ無効" do
-    user = FactoryBot.build(:user, school_year: nil)
+    user = FactoryBot.build(:user, school_year_id: nil)
     user.valid?
-    expect(user.errors[:school_year]).to include("を入力してください")
+    expect(user.errors[:school_year_id]).to include("を入力してください")
   end
 
   describe "メールアドレスの有効性" do

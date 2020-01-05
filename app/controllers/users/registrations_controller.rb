@@ -49,7 +49,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       :firstname_kana,
       :lastname_kana,
       :school_name,
-      :school_year,
+      :school_year_id,
       :term,
       :sex,
       :birthday

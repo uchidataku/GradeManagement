@@ -10,9 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_01_030027) do
+ActiveRecord::Schema.define(version: 2020_01_05_082324) do
 
   create_table "cram_schoolhouses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "school_years", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -28,7 +34,7 @@ ActiveRecord::Schema.define(version: 2020_01_01_030027) do
     t.datetime "updated_at", null: false
     t.string "lastname_kanji"
     t.string "school_name"
-    t.string "school_year"
+    t.string "school_year_id"
     t.date "birthday"
     t.bigint "cram_schoolhouse_id"
     t.string "firstname_kanji"

@@ -12,3 +12,20 @@ CramSchoolhouse.create!(
     { id: 10, name: "本厚木校" }
   ]
 )
+
+SchoolYear.create!(
+  [
+    { id: 1, name: "小学1年" },
+    { id: 2, name: "小学2年" },
+    { id: 3, name: "小学3年" },
+    { id: 4, name: "小学4年" },
+    { id: 5, name: "小学5年" },
+    { id: 6, name: "小学6年" },
+    { id: 7, name: "中学1年" },
+    { id: 8, name: "中学2年" },
+    { id: 9, name: "中学3年" },
+    { id: 10, name: "高校1年" },
+    { id: 11, name: "高校2年" },
+    { id: 12, name: "高校3年" }
+  ]
+)

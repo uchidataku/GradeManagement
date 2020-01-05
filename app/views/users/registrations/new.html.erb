@@ -63,20 +63,23 @@
   <div class="row justify-content-center registration_box">
     <div class="col-xs-12 col-md-5 item_leftbox">
       <div class="item">
-        <h5><%= f.label :school_year, "学年" %></h5>
+        <h5><%= f.label :school_year_id, "学年" %></h5>
         <small>※必須</small>
       </div>
     </div>
     <div class="col-xs-12 col-md-7 input_rightbox">
-      <%= f.select :school_year,[["小学1年", 1],
-                                ["小学2年", 2],
-                                ["小学3年", 3],
-                                ["小学4年", 4],
-                                ["小学5年", 5],
-                                ["小学6年", 6],
-                                ["中学1年", 7],
-                                ["中学2年", 8],
-                                ["中学3年", 9]] %>
+      <%= f.select :school_year_id,[["小学1年", 1],
+                                    ["小学2年", 2],
+                                    ["小学3年", 3],
+                                    ["小学4年", 4],
+                                    ["小学5年", 5],
+                                    ["小学6年", 6],
+                                    ["中学1年", 7],
+                                    ["中学2年", 8],
+                                    ["中学3年", 9],
+                                    ["高校1年", 10],
+                                    ["高校2年", 11],
+                                    ["高校3年", 12],] %>
     </div>
   </div>
   <div class="row justify-content-center registration_box">

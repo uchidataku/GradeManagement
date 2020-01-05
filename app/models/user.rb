@@ -4,6 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   belongs_to :cram_schoolhouse, class_name: "CramSchoolhouse", foreign_key: "cram_schoolhouse_id", optional: true
+  belongs_to :school_year, class_name: "SchoolYear", foreign_key: "school_year_id", optional: true
   validates :firstname_kanji, presence: true, length: { maximum: 50 }
   validates :lastname_kanji, presence: true, length: { maximum: 50 }
   validates :firstname_kana, presence: true, length: { maximum: 50 }
@@ -13,7 +14,7 @@ class User < ApplicationRecord
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
   validates :school_name, presence: true, length: { maximum: 50 }
-  validates :school_year, presence: true
+  validates :school_year_id, presence: true
 
   def full_name_kanji
     "#{firstname_kanji} #{lastname_kanji}"

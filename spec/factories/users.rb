@@ -6,7 +6,7 @@ FactoryBot.define do
     firstname_kana { "ヤマダ" }
     lastname_kana { "タロウ" }
     school_name { "サンプル小学校" }
-    school_year { "中学１年" }
+    school_year_id { 7 }
     term { 3 }
     sex { "男" }
     birthday { "2020-10-10" }
