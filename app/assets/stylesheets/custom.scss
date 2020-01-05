@@ -10,7 +10,7 @@
   }
 }
 
-// 新規登録ページ・ログインページ共通のCSS
+// 新規登録ページ・ログインページ・編集ページ共通のCSS
 
 .registration_title{
   color: #ddd;
@@ -67,5 +67,9 @@
 }
 
 .link {
+  margin: 15px;
+}
+
+.back_button{
   margin: 15px;
 }
