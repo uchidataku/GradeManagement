@@ -10,6 +10,15 @@
   }
 }
 
+.error_messages{
+  color: #f33;
+  p{
+    font-size: 20px;
+  }
+}
+
+// 新規登録ページ・ログインページ共通のCSS
+
 .registration_title{
   color: #ddd;
   padding: 15px;
@@ -18,6 +27,17 @@
 }
 
 .registration_box{
+  margin-bottom: 10px;
+}
+
+.login_title{
+  color: #ddd;
+  padding: 15px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.login_box{
   margin-bottom: 10px;
 }
 
