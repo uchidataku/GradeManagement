@@ -10,12 +10,48 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_05_082324) do
+ActiveRecord::Schema.define(version: 2020_01_05_112053) do
 
   create_table "cram_schoolhouses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "periodical_inspections", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "personal_achievement_tests", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.integer "periodical_inspection_id"
+    t.integer "japanese"
+    t.integer "mathematics"
+    t.integer "english"
+    t.integer "science"
+    t.integer "social_studies"
+    t.integer "music"
+    t.integer "fine_arts"
+    t.integer "technical_arts_and_home_economics"
+    t.integer "health_and_physical_education"
+    t.integer "five_subjects_total"
+    t.integer "nine_subjects_total"
+    t.decimal "average_japanese", precision: 6, scale: 2
+    t.decimal "average_mathematics", precision: 6, scale: 2
+    t.decimal "average_english", precision: 6, scale: 2
+    t.decimal "average_science", precision: 6, scale: 2
+    t.decimal "average_social_studies", precision: 6, scale: 2
+    t.decimal "average_music", precision: 6, scale: 2
+    t.decimal "average_fine_arts", precision: 6, scale: 2
+    t.decimal "average_technical_arts_and_home_economics", precision: 6, scale: 2
+    t.decimal "average_health_and_physical_education", precision: 6, scale: 2
+    t.decimal "average_five_subjects_total", precision: 6, scale: 2
+    t.decimal "average_nine_subjects_total", precision: 6, scale: 2
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_personal_achievement_tests_on_user_id"
   end
 
   create_table "school_years", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -47,4 +83,5 @@ ActiveRecord::Schema.define(version: 2020_01_05_082324) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "personal_achievement_tests", "users"
 end
