@@ -1,4 +1,4 @@
-<% provide(:title, @user.full_name_kanji) %>
+<% provide(:title, "定期考査") %>
 <main class="row">
   <aside class="col-md-3 sidebar">
     <ul>
@@ -20,37 +20,56 @@
   </aside>
   <article class="col-xs-12 col-md-9 maincontent">
     <header>
-      <div class="col-md-6 offset-md-3 profile-boxitem">
-        <h6>名前</h6>
-        <small><%= @user.full_name_kana %></small>
-        <h5><%= @user.full_name_kanji %></h5>
+      <div class="registration_title">
+        <h3>《定期考査結果》</h3>
       </div>
     </header>
     <section>
       <div class="col-md-6 offset-md-3 profile-boxitem">
-        <h6>校舎名</h6>
-        <h5><%= @user.cram_schoolhouse.name %></h5>
+        <h6>国語</h6>
+        <h5><%= @testpoint.japanese %></h5>
       </div>
       <div class="col-md-6 offset-md-3 profile-boxitem">
-        <h6>学校</h6>
-        <h5><%= @user.school_name %></h5>
+        <h6>数学</h6>
+        <h5><%= @testpoint.mathematics %></h5>
       </div>
       <div class="col-md-6 offset-md-3 profile-boxitem">
-        <h6>学年</h6>
-        <h5><%= @user.school_year.name %></h5>
+        <h6>英語</h6>
+        <h5><%= @testpoint.english %></h5>
       </div>
       <div class="col-md-6 offset-md-3 profile-boxitem">
-        <h6>生年月日</h6>
-        <h5><%= @user.birthday %></h5>
+        <h6>理科</h6>
+        <h5><%= @testpoint.science %></h5>
       </div>
       <div class="col-md-6 offset-md-3 profile-boxitem">
-        <h6>メールアドレス</h6>
-        <h5><%= @user.email %></h5>
+        <h6>社会</h6>
+        <h5><%= @testpoint.social_studies %></h5>
       </div>
-      <div class="">
-        <%= link_to "プロフィール編集", edit_user_registration_path(current_user) %>
-        <%= link_to "アカウント削除", registration_path(current_user), data: { confirm: "本当によろしいですか?" }, method: :delete  %>
+      <div class="col-md-6 offset-md-3 profile-boxitem">
+        <h6>5教科合計</h6>
+        <h5><%= @testpoint.five_subjects_total %></h5>
       </div>
+      <div class="col-md-6 offset-md-3 profile-boxitem">
+        <h6>音楽</h6>
+        <h5><%= @testpoint.music %></h5>
+      </div>
+      <div class="col-md-6 offset-md-3 profile-boxitem">
+        <h6>美術</h6>
+        <h5><%= @testpoint.fine_arts %></h5>
+      </div>
+      <div class="col-md-6 offset-md-3 profile-boxitem">
+        <h6>技術家庭</h6>
+        <h5><%= @testpoint.technical_arts_and_home_economics %></h5>
+      </div>
+      <div class="col-md-6 offset-md-3 profile-boxitem">
+        <h6>保健体育</h6>
+        <h5><%= @testpoint.health_and_physical_education %></h5>
+      </div>
+      <div class="col-md-6 offset-md-3 profile-boxitem">
+        <h6>9教科合計</h6>
+        <h5><%= @testpoint.nine_subjects_total %></h5>
+      </div>
+
     </section>
   </article>
 </main>

@@ -4,9 +4,17 @@
     <ul>
       <li><%= link_to "マイページ", user_path(current_user) %></li>
       <li><%= link_to "お知らせ", "#" %></li>
-      <li><%= link_to "定期考査", "#" %></li>
+      <li><a class="btn dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">
+        定期考査
+        <span class="caret"></span>
+      </a>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+        <% @personal_achievement_test.each do |achievement| %>
+          <li class="dropdown-item"><%= link_to achievement.periodical_inspection.name, user_personal_achievement_test_path(@user, achievement.id) %></li>
+        <% end %>
+      </ul></li>
       <li><%= link_to "成績表", "#" %></li>
-      <li><%= link_to "定期考査登録", "#" %></li>
+      <li><%= link_to "定期考査登録", new_user_personal_achievement_test_path(current_user) %></li>
       <li><%= link_to "成績表登録", "#" %></li>
     </ul>
   </aside>
@@ -18,7 +26,7 @@
       </div>
     </header>
     <section>
-      <%= form_for(@testpoint) do |f| %>
+      <%= form_for( [@user, @testpoint] ) do |f| %>
         <div class="row justify-content-center personal_achievement_tests_box">
           <div class="col-xs-12 col-md-3 item_leftbox">
             <div class="item">
@@ -192,7 +200,7 @@
             </div>
           </div>
           <div class="col-xs-12 col-md-3 input_rightbox">
-            <%= f.number_field :average_japanese, placeholder: "0~100.0", class: "form-control" %>
+            <%= f.number_field :average_japanese, step: "0.1", placeholder: "0~100.0", class: "form-control" %>
           </div>
           <div class="offset-md-5"></div>
         </div>
@@ -203,7 +211,7 @@
             </div>
           </div>
           <div class="col-xs-12 col-md-3 input_rightbox">
-            <%= f.number_field :average_mathematics, placeholder: "0~100.0", class: "form-control" %>
+            <%= f.number_field :average_mathematics, step: "0.1", placeholder: "0~100.0", class: "form-control" %>
           </div>
           <div class="offset-md-5"></div>
         </div>
@@ -214,7 +222,7 @@
             </div>
           </div>
           <div class="col-xs-12 col-md-3 input_rightbox">
-            <%= f.number_field :average_english, placeholder: "0~100.0", class: "form-control" %>
+            <%= f.number_field :average_english, step: "0.1", placeholder: "0~100.0", class: "form-control" %>
           </div>
           <div class="offset-md-5"></div>
         </div>
@@ -225,7 +233,7 @@
             </div>
           </div>
           <div class="col-xs-12 col-md-3 input_rightbox">
-            <%= f.number_field :average_science, placeholder: "0~100.0", class: "form-control" %>
+            <%= f.number_field :average_science, step: "0.1", placeholder: "0~100.0", class: "form-control" %>
           </div>
           <div class="offset-md-5"></div>
         </div>
@@ -236,7 +244,7 @@
             </div>
           </div>
           <div class="col-xs-12 col-md-3 input_rightbox">
-            <%= f.number_field :average_social_studies, placeholder: "0~100.0", class: "form-control" %>
+            <%= f.number_field :average_social_studies, step: "0.1", placeholder: "0~100.0", class: "form-control" %>
           </div>
           <div class="offset-md-5"></div>
         </div>
@@ -247,7 +255,7 @@
             </div>
           </div>
           <div class="col-xs-12 col-md-3 input_rightbox">
-            <%= f.number_field :average_five_subjects_total, placeholder: "0~500.0", class: "form-control" %>
+            <%= f.number_field :average_five_subjects_total, step: "0.1", placeholder: "0~500.0", class: "form-control" %>
           </div>
           <div class="offset-md-5"></div>
         </div>
@@ -258,7 +266,7 @@
             </div>
           </div>
           <div class="col-xs-12 col-md-3 input_rightbox">
-            <%= f.number_field :average_music, placeholder: "0~100.0", class: "form-control" %>
+            <%= f.number_field :average_music, step: "0.1", placeholder: "0~100.0", class: "form-control" %>
           </div>
           <div class="offset-md-5"></div>
         </div>
@@ -269,7 +277,7 @@
             </div>
           </div>
           <div class="col-xs-12 col-md-3 input_rightbox">
-            <%= f.number_field :average_fine_arts, placeholder: "0~100.0", class: "form-control" %>
+            <%= f.number_field :average_fine_arts, step: "0.1", placeholder: "0~100.0", class: "form-control" %>
           </div>
           <div class="offset-md-5"></div>
         </div>
@@ -280,7 +288,7 @@
             </div>
           </div>
           <div class="col-xs-12 col-md-3 input_rightbox">
-            <%= f.number_field :average_technical_arts_and_home_economics, placeholder: "0~100.0", class: "form-control" %>
+            <%= f.number_field :average_technical_arts_and_home_economics, step: "0.1", placeholder: "0~100.0", class: "form-control" %>
           </div>
           <div class="offset-md-5"></div>
         </div>
@@ -291,7 +299,7 @@
             </div>
           </div>
           <div class="col-xs-12 col-md-3 input_rightbox">
-            <%= f.number_field :average_health_and_physical_education, placeholder: "0~100.0", class: "form-control" %>
+            <%= f.number_field :average_health_and_physical_education, step: "0.1", placeholder: "0~100.0", class: "form-control" %>
           </div>
           <div class="offset-md-5"></div>
         </div>
@@ -302,11 +310,10 @@
             </div>
           </div>
           <div class="col-xs-12 col-md-3 input_rightbox">
-            <%= f.number_field :average_nine_subjects_total, placeholder: "0~900.0", class: "form-control" %>
+            <%= f.number_field :average_nine_subjects_total, step: "0.1", placeholder: "0~900.0", class: "form-control" %>
           </div>
           <div class="offset-md-5"></div>
         </div>
-
         <%= f.submit "登録する", class: "btn btn-primary" %>
       <% end %>
     </section>

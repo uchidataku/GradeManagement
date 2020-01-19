@@ -7,12 +7,20 @@ class PersonalAchievementTestsController < ApplicationController
       redirect_to current_user
     else
       flash[:danger] = "登録できませんでした"
-      redirect_to new_personal_achievement_test_path
+      redirect_to new_user_personal_achievement_test_path
     end
   end
 
   def new
-    @testpoint = current_user.personal_achievement_tests.new
+    @user = current_user
+    @personal_achievement_test = @user.personal_achievement_tests.all
+    @testpoint = PersonalAchievementTest.new
+  end
+
+  def show
+    @user = User.find(params[:user_id])
+    @personal_achievement_test = @user.personal_achievement_tests.all
+    @testpoint = PersonalAchievementTest.find(params[:id])
   end
 
   private
