@@ -6,6 +6,7 @@ class User < ApplicationRecord
   belongs_to :cram_schoolhouse, class_name: "CramSchoolhouse", foreign_key: "cram_schoolhouse_id", optional: true
   belongs_to :school_year, class_name: "SchoolYear", foreign_key: "school_year_id", optional: true
   has_many :personal_achievement_tests, dependent: :destroy
+  has_many :report_cards, dependent: :destroy
   validates :firstname_kanji, presence: true, length: { maximum: 50 }
   validates :lastname_kanji, presence: true, length: { maximum: 50 }
   validates :firstname_kana, presence: true, length: { maximum: 50 }
