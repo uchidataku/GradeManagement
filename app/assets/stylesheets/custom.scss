@@ -40,13 +40,13 @@
   border-radius: 10px/10px;
 }
 
-.item {
+.item{
   padding-top: 8px;
-  h5 {
+  h5{
     margin-right: 7px;
     display: inline-block;
   }
-  small {
+  small{
     color: #f00;
   }
 }
@@ -66,7 +66,7 @@
   }
 }
 
-.link {
+.link{
   margin: 15px;
 }
 
@@ -76,16 +76,25 @@
 
 // 定期考査登録ページのCSS
 
-.personalpoints-subtitle {
+.personalpoints-subtitle{
   margin-top: 15px;
   margin-bottom: 25px;
 }
 
-.averagepoints-subtitle {
+.averagepoints-subtitle{
   margin-top: 15px;
   margin-bottom: 25px;
 }
 
-ul.dropdown-menu {
+ul.dropdown-menu{
   background-color: #444;
+}
+
+table{
+  margin-left: 30px;
+  margin-bottom: 30px;
+}
+
+th,td{
+  border: solid 1px #fff;
 }

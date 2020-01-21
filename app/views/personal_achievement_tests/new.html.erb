@@ -13,9 +13,9 @@
           <li class="dropdown-item"><%= link_to achievement.periodical_inspection.name, user_personal_achievement_test_path(@user, achievement.id) %></li>
         <% end %>
       </ul></li>
-      <li><%= link_to "成績表", "#" %></li>
+      <li><%= link_to "通知表", "#" %></li>
       <li><%= link_to "定期考査登録", new_user_personal_achievement_test_path(current_user) %></li>
-      <li><%= link_to "成績表登録", "#" %></li>
+      <li><%= link_to "通知表登録", new_user_report_card_path(current_user) %></li>
     </ul>
   </aside>
   <article class="col-xs-12 col-md-9 maincontent">

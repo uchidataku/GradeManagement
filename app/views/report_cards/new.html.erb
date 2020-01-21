@@ -1,0 +1,199 @@
+<% provide(:title, "通知表登録") %>
+<main class="row">
+  <aside class="col-md-3 sidebar">
+    <ul>
+      <li><%= link_to "マイページ", user_path(current_user) %></li>
+      <li><%= link_to "お知らせ", "#" %></li>
+      <li><a class="btn dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">
+        定期考査
+        <span class="caret"></span>
+      </a>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+        <% @personal_achievement_test.each do |achievement| %>
+          <li class="dropdown-item"><%= link_to achievement.periodical_inspection.name, user_personal_achievement_test_path(@user, achievement.id) %></li>
+        <% end %>
+      </ul></li>
+      <li><%= link_to "通知表", "#" %></li>
+      <li><%= link_to "定期考査登録", new_user_personal_achievement_test_path(current_user) %></li>
+      <li><%= link_to "通知表登録", new_user_report_card_path(current_user) %></li>
+    </ul>
+  </aside>
+  <article class="col-xs-12 col-md-9 maincontent">
+    <header>
+      <div class="registration_title">
+        <h3>《通知表登録》</h3>
+        <p>通知表の結果を入力してください。</p>
+      </div>
+    </header>
+    <section>
+      <%= form_for( [@user, @record] ) do |f| %>
+        <div class="row justify-content-center personal_achievement_tests_box">
+          <div class="col-xs-12 col-md-3 item_leftbox">
+            <div class="item">
+              <h5><%= f.label :schoolyear_and_schoolterm_id, "学年学期選択" %></h5>
+            </div>
+          </div>
+          <div class="col-xs-12 col-md-2 input_rightbox">
+            <%= f.select :schoolyear_and_schoolterm_id, [["中学1年1学期", 1],
+                                                    ["中学1年2学期", 2],
+                                                    ["中学1年3学期", 3],
+                                                    ["中学2年1学期", 4],
+                                                    ["中学2年2学期", 5],
+                                                    ["中学2年3学期", 6],
+                                                    ["中学3年1学期", 7],
+                                                    ["中学3年2学期", 8],
+                                                    ["中学3年3学期", 9],
+                                                    ["中学1年前期", 10],
+                                                    ["中学1年後期", 11],
+                                                    ["中学2年前期", 12],
+                                                    ["中学2年後期", 13],
+                                                    ["中学3年前期", 14],
+                                                    ["中学3年後期", 15]]
+                                                    %>
+          </div>
+          <div class="offset-md-7"></div>
+        </div>
+        <div class="personalpoints-subtitle">
+          <h6>個人結果</h6>
+        </div>
+        <div class="row justify-content-center personal_achievement_tests_box">
+          <table class="col-md-12">
+            <tr>
+              <th>教科</th><th>観点別/学習状況</th><th>評価</th><th>評定</th>
+            </tr>
+            <div class="">
+              <tr>
+                <td rowspan="5"><%= f.label :japanese, "国語" %></td><td>国語への関心・意欲・態度</td><td><%= f.select :ja_column1, [["A", "A"], ["B", "B"], ["C", "C"]], selected: "B" %></td><td rowspan="5"><%= f.select :japanese, [["5", 5], ["4", 4], ["3", 3], ["2", 2], ["1", 1]], selected: "3", class: "form-control" %></td>
+              </tr>
+              <tr>
+                <td>話す・聞く能力</td><td><%= f.select :ja_column2, [["A", "A"], ["B", "B"], ["C", "C"]], selected: "B" %></td>
+              </tr>
+              <tr>
+                <td>書く能力</td><td><%= f.select :ja_column3, [["A", "A"], ["B", "B"], ["C", "C"]], selected: "B" %></td>
+              </tr>
+              <tr>
+                <td>読む能力</td><td><%= f.select :ja_column4, [["A", "A"], ["B", "B"], ["C", "C"]], selected: "B" %></td>
+              </tr>
+              <tr>
+                <td>言語についての知識・理解・技能</td><td><%= f.select :ja_column5, [["A", "A"], ["B", "B"], ["C", "C"]], selected: "B" %></td>
+              </tr>
+            </div>
+            <div class="">
+              <tr>
+                <td rowspan="4"><%= f.label :social_studies, "社会" %></td><td>社会的事象への関心・意欲・態度</td><td><%= f.select :so_column1, [["A", "A"], ["B", "B"], ["C", "C"]], selected: "B" %></td><td rowspan="4"><%= f.select :social_studies, [["5", 5], ["4", 4], ["3", 3], ["2", 2], ["1", 1]], selected: "3", class: "form-control" %></td>
+              </tr>
+              <tr>
+                <td>社会的な思考・判断・表現</td><td><%= f.select :so_column2, [["A", "A"], ["B", "B"], ["C", "C"]], selected: "B" %></td>
+              </tr>
+              <tr>
+                <td>資料活用の技能</td><td><%= f.select :so_column3, [["A", "A"], ["B", "B"], ["C", "C"]], selected: "B" %></td>
+              </tr>
+              <tr>
+                <td>社会的事象についての知識・理解</td><td><%= f.select :so_column4, [["A", "A"], ["B", "B"], ["C", "C"]], selected: "B" %></td>
+              </tr>
+            </div>
+            <div class="">
+              <tr>
+                <td rowspan="4"><%= f.label :mathematics, "数学" %></td><td>数学への関心・意欲・態度</td><td><%= f.select :ma_column1, [["A", "A"], ["B", "B"], ["C", "C"]], selected: "B" %></td><td rowspan="4"><%= f.select :mathematics, [["5", 5], ["4", 4], ["3", 3], ["2", 2], ["1", 1]], selected: "3", class: "form-control" %></td>
+              </tr>
+              <tr>
+                <td>数学的な思考・判断・表現</td><td><%= f.select :ma_column2, [["A", "A"], ["B", "B"], ["C", "C"]], selected: "B" %></td>
+              </tr>
+              <tr>
+                <td>数学的な技能</td><td><%= f.select :ma_column3, [["A", "A"], ["B", "B"], ["C", "C"]], selected: "B" %></td>
+              </tr>
+              <tr>
+                <td>数量や図形などについての知識・理解</td><td><%= f.select :ma_column4, [["A", "A"], ["B", "B"], ["C", "C"]], selected: "B" %></td>
+              </tr>
+            </div>
+            <div class="">
+              <tr>
+                <td rowspan="4"><%= f.label :science, "理科" %></td><td>自然事象への関心・意欲・態度</td><td><%= f.select :sc_column1, [["A", "A"], ["B", "B"], ["C", "C"]], selected: "B" %></td><td rowspan="4"><%= f.select :science, [["5", 5], ["4", 4], ["3", 3], ["2", 2], ["1", 1]], selected: "3", class: "form-control" %></td>
+              </tr>
+              <tr>
+                <td>科学的な思考・表現</td><td><%= f.select :sc_column2, [["A", "A"], ["B", "B"], ["C", "C"]], selected: "B" %></td>
+              </tr>
+              <tr>
+                <td>観察・実験の技能</td><td><%= f.select :sc_column3, [["A", "A"], ["B", "B"], ["C", "C"]], selected: "B" %></td>
+              </tr>
+              <tr>
+                <td>自然事象についての知識・理解</td><td><%= f.select :sc_column4, [["A", "A"], ["B", "B"], ["C", "C"]], selected: "B" %></td>
+              </tr>
+            </div>
+            <div class="">
+              <tr>
+                <td rowspan="4"><%= f.label :music, "音楽" %></td><td>音楽への関心・意欲・態度</td><td><%= f.select :mu_column1, [["A", "A"], ["B", "B"], ["C", "C"]], selected: "B" %></td><td rowspan="4"><%= f.select :music, [["5", 5], ["4", 4], ["3", 3], ["2", 2], ["1", 1]], selected: "3", class: "form-control" %></td>
+              </tr>
+              <tr>
+                <td>音楽表現の創意工夫</td><td><%= f.select :mu_column2, [["A", "A"], ["B", "B"], ["C", "C"]], selected: "B" %></td>
+              </tr>
+              <tr>
+                <td>音楽表現の技能</td><td><%= f.select :mu_column3, [["A", "A"], ["B", "B"], ["C", "C"]], selected: "B" %></td>
+              </tr>
+              <tr>
+                <td>鑑賞の能力</td><td><%= f.select :mu_column4, [["A", "A"], ["B", "B"], ["C", "C"]], selected: "B" %></td>
+              </tr>
+            </div>
+            <div class="">
+              <tr>
+                <td rowspan="4"><%= f.label :fine_arts, "美術" %></td><td>美術への関心・意欲・態度</td><td><%= f.select :fi_column1, [["A", "A"], ["B", "B"], ["C", "C"]], selected: "B" %></td><td rowspan="4"><%= f.select :fine_arts, [["5", 5], ["4", 4], ["3", 3], ["2", 2], ["1", 1]], selected: "3", class: "form-control" %></td>
+              </tr>
+              <tr>
+                <td>発想や構想の能力</td><td><%= f.select :fi_column2, [["A", "A"], ["B", "B"], ["C", "C"]], selected: "B" %></td>
+              </tr>
+              <tr>
+                <td>創造的な技能</td><td><%= f.select :fi_column3, [["A", "A"], ["B", "B"], ["C", "C"]], selected: "B" %></td>
+              </tr>
+              <tr>
+                <td>鑑賞の能力</td><td><%= f.select :fi_column4, [["A", "A"], ["B", "B"], ["C", "C"]], selected: "B" %></td>
+              </tr>
+            </div>
+            <div class="">
+              <tr>
+                <td rowspan="4"><%= f.label :health_and_physical_education, "保健体育" %></td><td>運動や健康・安全への関心・意欲・態度</td><td><%= f.select :he_column1, [["A", "A"], ["B", "B"], ["C", "C"]], selected: "B" %></td><td rowspan="4"><%= f.select :health_and_physical_education, [["5", 5], ["4", 4], ["3", 3], ["2", 2], ["1", 1]], selected: "3", class: "form-control" %></td>
+              </tr>
+              <tr>
+                <td>運動や健康・安全についての思考・判断</td><td><%= f.select :he_column2, [["A", "A"], ["B", "B"], ["C", "C"]], selected: "B" %></td>
+              </tr>
+              <tr>
+                <td>運動の技能</td><td><%= f.select :he_column3, [["A", "A"], ["B", "B"], ["C", "C"]], selected: "B" %></td>
+              </tr>
+              <tr>
+                <td>運動や健康・安全についての知識・理解</td><td><%= f.select :he_column4, [["A", "A"], ["B", "B"], ["C", "C"]], selected: "B" %></td>
+              </tr>
+            </div>
+            <div class="">
+              <tr>
+                <td rowspan="4"><%= f.label :technical_arts_and_home_economics, "技術家庭" %></td><td>生活や技術への関心・意欲・態度</td><td><%= f.select :te_column1, [["A", "A"], ["B", "B"], ["C", "C"]], selected: "B" %></td><td rowspan="4"><%= f.select :technical_arts_and_home_economics, [["5", 5], ["4", 4], ["3", 3], ["2", 2], ["1", 1]], selected: "3", class: "form-control" %></td>
+              </tr>
+              <tr>
+                <td>生活を工夫し創造する能力</td><td><%= f.select :te_column2, [["A", "A"], ["B", "B"], ["C", "C"]], selected: "B" %></td>
+              </tr>
+              <tr>
+                <td>生活の技能</td><td><%= f.select :te_column3, [["A", "A"], ["B", "B"], ["C", "C"]], selected: "B" %></td>
+              </tr>
+              <tr>
+                <td>生活や技術についての知識・理解</td><td><%= f.select :te_column4, [["A", "A"], ["B", "B"], ["C", "C"]], selected: "B" %></td>
+              </tr>
+            </div>
+            <div class="">
+              <tr>
+                <td rowspan="4"><%= f.label :english, "外国語" %></td><td>コミュニケーションへの関心・意欲・態度</td><td><%= f.select :en_column1, [["A", "A"], ["B", "B"], ["C", "C"]], selected: "B" %></td><td rowspan="4"><%= f.select :english, [["5", 5], ["4", 4], ["3", 3], ["2", 2], ["1", 1]], selected: "3", class: "form-control" %></td>
+              </tr>
+              <tr>
+                <td>外国語表現の能力</td><td><%= f.select :en_column2, [["A", "A"], ["B", "B"], ["C", "C"]], selected: "B" %></td>
+              </tr>
+              <tr>
+                <td>外国語理解の能力</td><td><%= f.select :en_column3, [["A", "A"], ["B", "B"], ["C", "C"]], selected: "B" %></td>
+              </tr>
+              <tr>
+                <td>言語や文化についての知識・理解</td><td><%= f.select :en_column4, [["A", "A"], ["B", "B"], ["C", "C"]], selected: "B" %></td>
+              </tr>
+            </div>
+          </table>
+        </div>
+        <%= f.submit "登録する", class: "btn btn-primary" %>
+      <% end %>
+    </section>
+  </article>
+</main>

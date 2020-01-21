@@ -61,3 +61,23 @@ PeriodicalInspection.create!(
     { id: 27, name: "中学3年後期期末考査" }
   ]
 )
+
+SchoolyearAndSchoolterm.create!(
+  [
+    { id: 1, name: "中学1年1学期" },
+    { id: 2, name: "中学1年2学期" },
+    { id: 3, name: "中学1年3学期" },
+    { id: 4, name: "中学2年1学期" },
+    { id: 5, name: "中学2年2学期" },
+    { id: 6, name: "中学2年3学期" },
+    { id: 7, name: "中学3年1学期" },
+    { id: 8, name: "中学3年2学期" },
+    { id: 9, name: "中学3年3学期" },
+    { id: 10, name: "中学1年前期" },
+    { id: 11, name: "中学1年後期" },
+    { id: 12, name: "中学2年前期" },
+    { id: 13, name: "中学2年後期" },
+    { id: 14, name: "中学3年前期" },
+    { id: 15, name: "中学3年後期" }
+  ]
+)

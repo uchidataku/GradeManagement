@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     get '/users/:id', to: 'users#show', as: :user
   end
   resources :users, only: [:show] do
-    resources :personal_achievement_tests, only: [:new, :show, :create, :destroy, :index]
+    resources :personal_achievement_tests, only: [:new, :show, :create, :destroy]
+    resources :report_cards, only: [:new, :show, :create, :destroy]
   end
 end
