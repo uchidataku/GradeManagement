@@ -14,12 +14,14 @@ class PersonalAchievementTestsController < ApplicationController
   def new
     @user = current_user
     @personal_achievement_test = @user.personal_achievement_tests.all
+    @report_cards = @user.report_cards.all
     @testpoint = PersonalAchievementTest.new
   end
 
   def show
     @user = User.find(params[:user_id])
     @personal_achievement_test = @user.personal_achievement_tests.all
+    @report_cards = @user.report_cards.all
     @testpoint = PersonalAchievementTest.find(params[:id])
   end
 

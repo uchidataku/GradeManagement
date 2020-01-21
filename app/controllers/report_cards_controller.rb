@@ -18,6 +18,10 @@ class ReportCardsController < ApplicationController
   end
 
   def show
+    @user = User.find(params[:user_id])
+    @personal_achievement_test = @user.personal_achievement_tests.all
+    @report_cards = @user.report_cards.all
+    @record = ReportCard.find(params[:id])
   end
 
   private
