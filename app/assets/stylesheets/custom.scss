@@ -10,11 +10,26 @@
   }
 }
 
+// headerのCSS
+.navbar-brand{
+  font-size: 30px;
+  margin-left: 20px;
+}
+
+.navbar-nav{
+  color: #fff;
+  font-size: 15px;
+  margin-right: 20px;
+  cursor: pointer;
+  p{
+    margin-bottom: auto;
+  }
+}
+
 // topページのCSS
 
-.toppage_news_box{
-  border-top: 0.3px solid #fff;
-  border-bottom: 0.3px solid #fff;
+.container{
+  margin-top: 60px;
 }
 
 .box26 {
@@ -41,6 +56,23 @@
     padding: 0;
 }
 
+// ユーザーページのCSS
+
+.sidebar{
+  border-right: 0.02em solid #fffafa;
+}
+
+.profile-boxitem{
+  margin-bottom: 50px;
+  h6{
+    opacity: 0.5;
+    display: inline-block;
+    float: left;
+  }
+  h5{
+    border-bottom: thin solid;
+  }
+}
 // 新規登録ページ・ログインページ・編集ページ共通のCSS
 
 .registration_title{
@@ -83,7 +115,7 @@
 }
 
 .input_rightbox{
-  color: #fff;
+  color: #333;
   text-align: left;
   padding: 15px;
   select {
@@ -117,15 +149,11 @@
   margin-bottom: 25px;
 }
 
-ul.dropdown-menu{
-  background-color: #444;
-}
-
 table{
   margin-left: 30px;
   margin-bottom: 30px;
 }
 
 th,td{
-  border: solid 1px #fff;
+  border: solid 1px #333;
 }
