@@ -1,0 +1,329 @@
+<% provide(:title, "定期考査登録") %>
+<main class="row">
+  <aside class="col-md-3 sidebar">
+    <ul>
+      <li><%= link_to "マイページ", user_path(current_user) %></li>
+      <li><%= link_to "お知らせ", "#" %></li>
+      <li><a class="btn dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">
+        定期考査
+        <span class="caret"></span>
+      </a>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+        <% @personal_achievement_test.each do |achievement| %>
+          <li class="dropdown-item"><%= link_to achievement.periodical_inspection.name, user_personal_achievement_test_path(@user, achievement.id) %></li>
+        <% end %>
+      </ul></li>
+      <li><a class="btn dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">
+        通知表
+        <span class="caret"></span>
+      </a>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+        <% @report_cards.each do |report| %>
+          <li class="dropdown-item"><%= link_to report.schoolyear_and_schoolterm.name, user_report_card_path(@user, report.id) %></li>
+        <% end %>
+      </ul></li>
+      <li><%= link_to "定期考査登録", new_user_personal_achievement_test_path(current_user) %></li>
+      <li><%= link_to "通知表登録", new_user_report_card_path(current_user) %></li>
+    </ul>
+  </aside>
+  <article class="col-xs-12 col-md-9 maincontent">
+    <header>
+      <div class="registration_title">
+        <h3>《定期考査登録》</h3>
+        <p>定期考査の結果を入力してください。</p>
+      </div>
+    </header>
+    <section>
+      <%= form_for( [@user, @testpoint] ) do |f| %>
+        <div class="row justify-content-center personal_achievement_tests_box">
+          <div class="col-xs-12 col-md-3 item_leftbox">
+            <div class="item">
+              <h5><%= f.label :periodical_inspection_id, "定期考査選択" %></h5>
+            </div>
+          </div>
+          <div class="col-xs-12 col-md-2 input_rightbox">
+            <%= f.select :periodical_inspection_id, [["中学1年1学期中間考査", 1],
+                                                    ["中学1年1学期期末考査", 2],
+                                                    ["中学1年2学期中間考査", 3],
+                                                    ["中学1年2学期期末考査", 4],
+                                                    ["中学1年3学期学年末考査", 5],
+                                                    ["中学2年1学期中間考査", 6],
+                                                    ["中学2年1学期期末考査", 7],
+                                                    ["中学2年2学期中間考査", 8],
+                                                    ["中学2年2学期期末考査", 9],
+                                                    ["中学2年3学期学年末考査", 10],
+                                                    ["中学3年1学期中間考査", 11],
+                                                    ["中学3年1学期期末考査", 12],
+                                                    ["中学3年2学期中間考査", 13],
+                                                    ["中学3年2学期期末考査", 14],
+                                                    ["中学3年3学期学年末考査", 15],
+                                                    ["中学1年前期中間考査", 16],
+                                                    ["中学1年前期期末考査", 17],
+                                                    ["中学1年後期中間考査", 18],
+                                                    ["中学1年後期期末考査", 19],
+                                                    ["中学2年前期中間考査", 20],
+                                                    ["中学2年前期期末考査", 21],
+                                                    ["中学2年後期中間考査", 22],
+                                                    ["中学2年後期期末考査", 23],
+                                                    ["中学3年前期中間考査", 24],
+                                                    ["中学3年前期期末考査", 25],
+                                                    ["中学3年後期中間考査", 26],
+                                                    ["中学3年後期期末考査", 27]]
+                                                    %>
+          </div>
+          <div class="offset-md-7"></div>
+        </div>
+        <div class="personalpoints-subtitle">
+          <h6>個人点数</h6>
+        </div>
+        <div class="row justify-content-center personal_achievement_tests_box">
+          <div class="col-xs-12 col-md-3 item_leftbox">
+            <div class="item">
+              <h5><%= f.label :japanese, "国語" %></h5>
+            </div>
+          </div>
+          <div class="col-xs-12 col-md-3 input_rightbox">
+            <%= f.number_field :japanese, placeholder: "0~100", class: "form-control" %>
+          </div>
+          <div class="offset-md-5"></div>
+        </div>
+        <div class="row justify-content-center personal_achievement_tests_box">
+          <div class="col-xs-12 col-md-3 item_leftbox">
+            <div class="item">
+              <h5><%= f.label :mathematics, "数学" %></h5>
+            </div>
+          </div>
+          <div class="col-xs-12 col-md-3 input_rightbox">
+            <%= f.number_field :mathematics, placeholder: "0~100", class: "form-control" %>
+          </div>
+          <div class="offset-md-5"></div>
+        </div>
+        <div class="row justify-content-center personal_achievement_tests_box">
+          <div class="col-xs-12 col-md-3 item_leftbox">
+            <div class="item">
+              <h5><%= f.label :english, "英語" %></h5>
+            </div>
+          </div>
+          <div class="col-xs-12 col-md-3 input_rightbox">
+            <%= f.number_field :english, placeholder: "0~100", class: "form-control" %>
+          </div>
+          <div class="offset-md-5"></div>
+        </div>
+        <div class="row justify-content-center personal_achievement_tests_box">
+          <div class="col-xs-12 col-md-3 item_leftbox">
+            <div class="item">
+              <h5><%= f.label :science, "理科" %></h5>
+            </div>
+          </div>
+          <div class="col-xs-12 col-md-3 input_rightbox">
+            <%= f.number_field :science, placeholder: "0~100", class: "form-control" %>
+          </div>
+          <div class="offset-md-5"></div>
+        </div>
+        <div class="row justify-content-center personal_achievement_tests_box">
+          <div class="col-xs-12 col-md-3 item_leftbox">
+            <div class="item">
+              <h5><%= f.label :social_studies, "社会" %></h5>
+            </div>
+          </div>
+          <div class="col-xs-12 col-md-3 input_rightbox">
+            <%= f.number_field :social_studies, placeholder: "0~100", class: "form-control" %>
+          </div>
+          <div class="offset-md-5"></div>
+        </div>
+        <div class="row justify-content-center personal_achievement_tests_box">
+          <div class="col-xs-12 col-md-3 item_leftbox">
+            <div class="item">
+              <h5><%= f.label :five_subjects_total, "5教科合計" %></h5>
+            </div>
+          </div>
+          <div class="col-xs-12 col-md-3 input_rightbox">
+            <%= f.number_field :five_subjects_total, placeholder: "0~500", class: "form-control" %>
+          </div>
+          <div class="offset-md-5"></div>
+        </div>
+        <div class="row justify-content-center personal_achievement_tests_box">
+          <div class="col-xs-12 col-md-3 item_leftbox">
+            <div class="item">
+              <h5><%= f.label :music, "音楽" %></h5>
+            </div>
+          </div>
+          <div class="col-xs-12 col-md-3 input_rightbox">
+            <%= f.number_field :music, placeholder: "0~100", class: "form-control" %>
+          </div>
+          <div class="offset-md-5"></div>
+        </div>
+        <div class="row justify-content-center personal_achievement_tests_box">
+          <div class="col-xs-12 col-md-3 item_leftbox">
+            <div class="item">
+              <h5><%= f.label :fine_arts, "美術" %></h5>
+            </div>
+          </div>
+          <div class="col-xs-12 col-md-3 input_rightbox">
+            <%= f.number_field :fine_arts, placeholder: "0~100", class: "form-control" %>
+          </div>
+          <div class="offset-md-5"></div>
+        </div>
+        <div class="row justify-content-center personal_achievement_tests_box">
+          <div class="col-xs-12 col-md-3 item_leftbox">
+            <div class="item">
+              <h5><%= f.label :technical_arts_and_home_economics, "技術家庭" %></h5>
+            </div>
+          </div>
+          <div class="col-xs-12 col-md-3 input_rightbox">
+            <%= f.number_field :technical_arts_and_home_economics, placeholder: "0~100", class: "form-control" %>
+          </div>
+          <div class="offset-md-5"></div>
+        </div>
+        <div class="row justify-content-center personal_achievement_tests_box">
+          <div class="col-xs-12 col-md-3 item_leftbox">
+            <div class="item">
+              <h5><%= f.label :health_and_physical_education, "保健体育" %></h5>
+            </div>
+          </div>
+          <div class="col-xs-12 col-md-3 input_rightbox">
+            <%= f.number_field :health_and_physical_education, placeholder: "0~100", class: "form-control" %>
+          </div>
+          <div class="offset-md-5"></div>
+        </div>
+        <div class="row justify-content-center personal_achievement_tests_box">
+          <div class="col-xs-12 col-md-3 item_leftbox">
+            <div class="item">
+              <h5><%= f.label :nine_subjects_total, "9教科合計" %></h5>
+            </div>
+          </div>
+          <div class="col-xs-12 col-md-3 input_rightbox">
+            <%= f.number_field :nine_subjects_total, placeholder: "0~900", class: "form-control" %>
+          </div>
+          <div class="offset-md-5"></div>
+        </div>
+
+        <div class="averagepoints-subtitle">
+          <h6>平均点</h6>
+        </div>
+        <div class="row justify-content-center personal_achievement_tests_box">
+          <div class="col-xs-12 col-md-3 item_leftbox">
+            <div class="item">
+              <h5><%= f.label :average_japanese, "国語（平均点）" %></h5>
+            </div>
+          </div>
+          <div class="col-xs-12 col-md-3 input_rightbox">
+            <%= f.number_field :average_japanese, step: "0.1", placeholder: "0~100.0", class: "form-control" %>
+          </div>
+          <div class="offset-md-5"></div>
+        </div>
+        <div class="row justify-content-center personal_achievement_tests_box">
+          <div class="col-xs-12 col-md-3 item_leftbox">
+            <div class="item">
+              <h5><%= f.label :average_mathematics, "数学（平均点）" %></h5>
+            </div>
+          </div>
+          <div class="col-xs-12 col-md-3 input_rightbox">
+            <%= f.number_field :average_mathematics, step: "0.1", placeholder: "0~100.0", class: "form-control" %>
+          </div>
+          <div class="offset-md-5"></div>
+        </div>
+        <div class="row justify-content-center personal_achievement_tests_box">
+          <div class="col-xs-12 col-md-3 item_leftbox">
+            <div class="item">
+              <h5><%= f.label :average_english, "英語（平均点）" %></h5>
+            </div>
+          </div>
+          <div class="col-xs-12 col-md-3 input_rightbox">
+            <%= f.number_field :average_english, step: "0.1", placeholder: "0~100.0", class: "form-control" %>
+          </div>
+          <div class="offset-md-5"></div>
+        </div>
+        <div class="row justify-content-center personal_achievement_tests_box">
+          <div class="col-xs-12 col-md-3 item_leftbox">
+            <div class="item">
+              <h5><%= f.label :average_science, "理科（平均点）" %></h5>
+            </div>
+          </div>
+          <div class="col-xs-12 col-md-3 input_rightbox">
+            <%= f.number_field :average_science, step: "0.1", placeholder: "0~100.0", class: "form-control" %>
+          </div>
+          <div class="offset-md-5"></div>
+        </div>
+        <div class="row justify-content-center personal_achievement_tests_box">
+          <div class="col-xs-12 col-md-3 item_leftbox">
+            <div class="item">
+              <h5><%= f.label :average_social_studies, "社会（平均点）" %></h5>
+            </div>
+          </div>
+          <div class="col-xs-12 col-md-3 input_rightbox">
+            <%= f.number_field :average_social_studies, step: "0.1", placeholder: "0~100.0", class: "form-control" %>
+          </div>
+          <div class="offset-md-5"></div>
+        </div>
+        <div class="row justify-content-center personal_achievement_tests_box">
+          <div class="col-xs-12 col-md-4 item_leftbox">
+            <div class="item">
+              <h5><%= f.label :average_five_subjects_total, "5教科合計（平均点）" %></h5>
+            </div>
+          </div>
+          <div class="col-xs-12 col-md-3 input_rightbox">
+            <%= f.number_field :average_five_subjects_total, step: "0.1", placeholder: "0~500.0", class: "form-control" %>
+          </div>
+          <div class="offset-md-5"></div>
+        </div>
+        <div class="row justify-content-center personal_achievement_tests_box">
+          <div class="col-xs-12 col-md-3 item_leftbox">
+            <div class="item">
+              <h5><%= f.label :average_music, "音楽（平均点）" %></h5>
+            </div>
+          </div>
+          <div class="col-xs-12 col-md-3 input_rightbox">
+            <%= f.number_field :average_music, step: "0.1", placeholder: "0~100.0", class: "form-control" %>
+          </div>
+          <div class="offset-md-5"></div>
+        </div>
+        <div class="row justify-content-center personal_achievement_tests_box">
+          <div class="col-xs-12 col-md-3 item_leftbox">
+            <div class="item">
+              <h5><%= f.label :average_fine_arts, "美術（平均点）" %></h5>
+            </div>
+          </div>
+          <div class="col-xs-12 col-md-3 input_rightbox">
+            <%= f.number_field :average_fine_arts, step: "0.1", placeholder: "0~100.0", class: "form-control" %>
+          </div>
+          <div class="offset-md-5"></div>
+        </div>
+        <div class="row justify-content-center personal_achievement_tests_box">
+          <div class="col-xs-12 col-md-3 item_leftbox">
+            <div class="item">
+              <h5><%= f.label :average_technical_arts_and_home_economics, "技術家庭（平均点）" %></h5>
+            </div>
+          </div>
+          <div class="col-xs-12 col-md-3 input_rightbox">
+            <%= f.number_field :average_technical_arts_and_home_economics, step: "0.1", placeholder: "0~100.0", class: "form-control" %>
+          </div>
+          <div class="offset-md-5"></div>
+        </div>
+        <div class="row justify-content-center personal_achievement_tests_box">
+          <div class="col-xs-12 col-md-3 item_leftbox">
+            <div class="item">
+              <h5><%= f.label :average_health_and_physical_education, "保健体育（平均点）" %></h5>
+            </div>
+          </div>
+          <div class="col-xs-12 col-md-3 input_rightbox">
+            <%= f.number_field :average_health_and_physical_education, step: "0.1", placeholder: "0~100.0", class: "form-control" %>
+          </div>
+          <div class="offset-md-5"></div>
+        </div>
+        <div class="row justify-content-center personal_achievement_tests_box">
+          <div class="col-xs-12 col-md-4 item_leftbox">
+            <div class="item">
+              <h5><%= f.label :average_nine_subjects_total, "9教科合計（平均点）" %></h5>
+            </div>
+          </div>
+          <div class="col-xs-12 col-md-3 input_rightbox">
+            <%= f.number_field :average_nine_subjects_total, step: "0.1", placeholder: "0~900.0", class: "form-control" %>
+          </div>
+          <div class="offset-md-5"></div>
+        </div>
+        <%= f.submit "登録する", class: "btn btn-primary" %>
+      <% end %>
+    </section>
+  </article>
+</main>

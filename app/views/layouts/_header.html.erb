@@ -1,0 +1,14 @@
+<header class="masthead mb-auto">
+  <div class="inner">
+    <h3 class="masthead-brand"><%= link_to "GradeManagement", root_path %></h3>
+    <nav class="nav nav-masthead justify-content-center">
+      <% if user_signed_in? %>
+        <li class="nav-link"><%= link_to "マイページ", user_path(current_user) %></li>
+        <li class="nav-link"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+      <% else %>
+        <li class="nav-link"><%= link_to "新規登録", new_user_registration_path %></li>
+        <li class="nav-link"><%= link_to "ログイン", new_user_session_path %></li>
+      <% end %>
+    </nav>
+  </div>
+</header>

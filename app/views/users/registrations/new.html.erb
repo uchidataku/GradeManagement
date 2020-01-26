@@ -1,29 +1,155 @@
-<h2>Sign up</h2>
-
+<% provide(:title, "新規登録") %>
+<div class="registration_title">
+  <h3>《新規登録》</h3>
+  <p>登録に必要な情報を入力してください。</p>
+</div>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  <div class="row justify-content-center registration_box">
+    <div class="col-xs-12 col-md-5 item_leftbox">
+      <div class="item">
+        <h5><%= f.label :cram_schoolhouse_id, "校舎名" %></h5>
+        <small>※必須</small>
+      </div>
+    </div>
+    <div class="col-xs-12 col-md-7 input_rightbox">
+      <%= f.select :cram_schoolhouse_id, [["鶴川校", 1],
+                                          ["町田鶴間校", 2],
+                                          ["淵野辺校", 3],
+                                          ["新百合ヶ丘校", 4],
+                                          ["南林間校", 5],
+                                          ["南橋本校", 6],
+                                          ["座間校", 7],
+                                          ["湘南台校", 8],
+                                          ["南大谷校", 9],
+                                          ["本厚木校", 10]] %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+  <div class="row justify-content-center registration_box">
+    <div class="col-xs-12 col-md-5 item_leftbox">
+      <div class="item">
+        <h5><%= f.label :name, "名前(漢字)" %></h5>
+        <small>※必須</small>
+      </div>
+    </div>
+    <div class="col-xs-12 col-md-7 input_rightbox">
+      <%= f.text_field :firstname_kanji, placeholder: "姓", class: "form-control" %>
+      <%= f.text_field :lastname_kanji, placeholder: "名", class: "form-control" %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  <div class="row justify-content-center registration_box">
+    <div class="col-xs-12 col-md-5 item_leftbox">
+      <div class="item">
+        <h5><%= f.label :name, "名前（カナ）" %></h5>
+        <small>※必須</small>
+      </div>
+    </div>
+    <div class="col-xs-12 col-md-7 input_rightbox">
+      <%= f.text_field :firstname_kana, placeholder: "セイ", class: "form-control" %>
+      <%= f.text_field :lastname_kana, placeholder: "メイ", class: "form-control" %>
+    </div>
   </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
+  <div class="row justify-content-center registration_box">
+    <div class="col-xs-12 col-md-5 item_leftbox">
+      <div class="item">
+        <h5><%= f.label :school_name, "学校" %></h5>
+        <small>※必須</small>
+      </div>
+    </div>
+    <div class="col-xs-12 col-md-7 input_rightbox">
+      <%= f.text_field :school_name, placeholder: "○○小学校 or ○○中学校", class: "form-control" %>
+    </div>
   </div>
+  <div class="row justify-content-center registration_box">
+    <div class="col-xs-12 col-md-5 item_leftbox">
+      <div class="item">
+        <h5><%= f.label :school_year_id, "学年" %></h5>
+        <small>※必須</small>
+      </div>
+    </div>
+    <div class="col-xs-12 col-md-7 input_rightbox">
+      <%= f.select :school_year_id,[["小学1年", 1],
+                                    ["小学2年", 2],
+                                    ["小学3年", 3],
+                                    ["小学4年", 4],
+                                    ["小学5年", 5],
+                                    ["小学6年", 6],
+                                    ["中学1年", 7],
+                                    ["中学2年", 8],
+                                    ["中学3年", 9],
+                                    ["高校1年", 10],
+                                    ["高校2年", 11],
+                                    ["高校3年", 12],] %>
+    </div>
+  </div>
+  <div class="row justify-content-center registration_box">
+    <div class="col-xs-12 col-md-5 item_leftbox">
+      <div class="item">
+        <h5><%= f.label :term, "学期" %></h5>
+        <small>※必須</small>
+      </div>
+    </div>
+    <div class="col-xs-12 col-md-7 input_rightbox">
+      <%= f.radio_button :term, 3, checked: true %>3学期制<br />
+      <%= f.radio_button :term, 2 %>2学期制
+    </div>
+  </div>
+  <div class="row justify-content-center registration_box">
+    <div class="col-xs-12 col-md-5 item_leftbox">
+      <div class="item">
+        <h5><%= f.label :sex, "性別" %></h5>
+      </div>
+    </div>
+    <div class="col-xs-12 col-md-7 input_rightbox">
+      <%= f.radio_button :sex, "男", checked: true %>男<br />
+      <%= f.radio_button :sex, "女" %>女
+    </div>
+  </div>
+  <div class="row justify-content-center registration_box">
+    <div class="col-xs-12 col-md-5 item_leftbox">
+      <div class="item">
+        <h5><%= f.label :birthday, "生年月日" %></h5>
+      </div>
+    </div>
+    <div class="col-xs-12 col-md-7 input_rightbox">
+      <%= f.date_select :birthday, {discard: true, start_year: 2000, end_year: 2020} %>
+    </div>
+  </div>
+  <div class="row justify-content-center registration_box">
+    <div class="col-xs-12 col-md-5 item_leftbox">
+      <div class="item">
+        <h5><%= f.label :email, "メールアドレス" %></h5>
+        <small>※必須</small>
+      </div>
+    </div>
+    <div class="col-xs-12 col-md-7 input_rightbox">
+      <%= f.email_field :email, autocomplete: "email", placeholder: "abc@example.com", class: "form-control" %>
+    </div>
+  </div>
+  <div class="row justify-content-center registration_box">
+    <div class="col-xs-12 col-md-5 item_leftbox">
+      <div class="item">
+        <h5><%= f.label :password, "パスワード" %></h5>
+        <small>※必須</small>
+      </div>
+    </div>
+    <div class="col-xs-12 col-md-7 input_rightbox">
+      <%= f.password_field :password, autocomplete: "password", placeholder: "password", class: "form-control" %>
+    </div>
+  </div>
+  <div class="row justify-content-center registration_box">
+    <div class="col-xs-12 col-md-5 item_leftbox">
+      <div class="item">
+        <h5><%= f.label :password_confirmation, "パスワード（確認用）" %></h5>
+        <small>※必須</small>
+      </div>
+    </div>
+    <div class="col-xs-12 col-md-7 input_rightbox">
+      <%= f.password_field :password_confirmation, autocomplete: "password", placeholder: "password", class: "form-control" %>
+    </div>
+  </div>
+  <%= f.submit "新規登録", class: "btn btn-primary" %>
 <% end %>
-
-<%= render "users/shared/links" %>
+<div class="link">
+  <%= link_to "ログインはこちら", new_user_session_path %>
+</div>
