@@ -10,6 +10,37 @@
   }
 }
 
+// topページのCSS
+
+.toppage_news_box{
+  border-top: 0.3px solid #fff;
+  border-bottom: 0.3px solid #fff;
+}
+
+.box26 {
+    position: relative;
+    margin: 2em 0;
+    padding: 25px 10px 7px;
+    border: solid 0.5px #FFC107;
+}
+.box26 .box-title {
+    position: absolute;
+    display: inline-block;
+    top: -0.5px;
+    left: -0.5px;
+    padding: 0 9px;
+    height: 25px;
+    line-height: 25px;
+    font-size: 17px;
+    background: #FFC107;
+    color: #ffffff;
+    font-weight: bold;
+}
+.box26 p {
+    margin: 0;
+    padding: 0;
+}
+
 // 新規登録ページ・ログインページ・編集ページ共通のCSS
 
 .registration_title{

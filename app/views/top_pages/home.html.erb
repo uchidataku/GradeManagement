@@ -1,8 +1,64 @@
-<main role="main" class="inner cover">
-  <h2 class="cover-heading">GradeManagementへようこそ</h2>
-  <p class="lead"></p>
-  <p class="lead">
-    <li class="btn btn-lg btn-primary"><%= link_to "新規登録", new_user_registration_path %></li>
-    <li class="btn btn-lg btn-primary"><%= link_to "ログイン", new_user_session_path %></li>
-  </p>
-</main>
+<% if user_signed_in? %>
+  <main class="row">
+    <aside class="col-md-3 sidebar">
+      <ul>
+        <li><%= link_to "マイページ", user_path(current_user) %></li>
+        <li><%= link_to "お知らせ", "#" %></li>
+        <li><a class="btn dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">
+          定期考査
+          <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+          <% @personal_achievement_test.each do |achievement| %>
+            <li class="dropdown-item"><%= link_to achievement.periodical_inspection.name, user_personal_achievement_test_path(@user, achievement.id) %></li>
+          <% end %>
+        </ul></li>
+        <li><a class="btn dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">
+          通知表
+          <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+          <% @report_cards.each do |report| %>
+            <li class="dropdown-item"><%= link_to report.schoolyear_and_schoolterm.name, user_report_card_path(@user, report.id) %></li>
+          <% end %>
+        </ul></li>
+        <li><%= link_to "定期考査登録", new_user_personal_achievement_test_path(current_user) %></li>
+        <li><%= link_to "通知表登録", new_user_report_card_path(current_user) %></li>
+      </ul>
+    </aside>
+    <article class="col-xs-12 col-md-9 maincontent">
+      <header>
+        <div class="registration_title">
+          <h4><%= @user.full_name_kanji %></h4>
+        </div>
+      </header>
+      <section>
+        <div class="box26">
+          <span class="box-title">お知らせ</span>
+          <p>お知らせはありません。</p>
+        </div>
+        <div class="box26">
+          <span class="box-title">定期考査</span>
+          <ul><% @personal_achievement_test.each do |achievement| %>
+            <li><%= link_to achievement.periodical_inspection.name, user_personal_achievement_test_path(@user, achievement.id) %></li>
+          <% end %></ul>
+        </div>
+        <div class="box26">
+          <span class="box-title">通知表</span>
+          <ul><% @report_cards.each do |report| %>
+            <li><%= link_to report.schoolyear_and_schoolterm.name, user_report_card_path(@user, report.id) %></li>
+          <% end %></ul>
+        </div>
+      </section>
+    </article>
+  </main>
+<% else %>
+  <main role="main" class="inner cover">
+    <h2 class="cover-heading">GradeManagementへようこそ</h2>
+    <p class="lead"></p>
+    <p class="lead">
+      <li class="btn btn-lg btn-primary"><%= link_to "新規登録", new_user_registration_path %></li>
+      <li class="btn btn-lg btn-primary"><%= link_to "ログイン", new_user_session_path %></li>
+    </p>
+  </main>
+<% end %>
