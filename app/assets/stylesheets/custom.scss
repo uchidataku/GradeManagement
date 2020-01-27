@@ -21,13 +21,13 @@ header{
 
 .navbar-brand{
   font-size: 30px;
-  margin-left: 20px;
+  margin-left: 40px;
 }
 
 .navbar-nav{
   color: #fff;
   font-size: 15px;
-  margin-right: 20px;
+  margin-right: 40px;
   cursor: pointer;
   p{
     margin-bottom: auto;
@@ -54,6 +54,15 @@ footer{
   margin-top: 60px;
 }
 
+aside{
+  margin: 20px;
+  margin-top: 30px;
+}
+
+article{
+  background-color: #fff;
+}
+
 .box26 {
     position: relative;
     margin: 2em 0;
@@ -78,11 +87,22 @@ footer{
     padding: 0;
 }
 
-// ユーザーページのCSS
-
-.sidebar{
-  border-right: 0.02em solid #fffafa;
+.sidebar ul {
+  padding: 0;
+  position: relative;
 }
+
+.sidebar ul li {
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style-type: none!important;
+  background: linear-gradient(to bottom, whitesmoke 0%, #dadada 100%);/*グラデーション*/
+  height: 70px;
+}
+
+// ユーザーページのCSS
 
 .profile-boxitem{
   margin-bottom: 50px;

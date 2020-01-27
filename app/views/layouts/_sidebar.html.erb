@@ -1,7 +1,5 @@
-<ul>
-  <li><%= link_to "マイページ", user_path(current_user) %></li>
-  <li><%= link_to "お知らせ", "#" %></li>
-  <li><a class="btn dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">
+<ul class="row">
+  <li class="col-3 col-md-12"><a class="btn dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">
     定期考査
     <span class="caret"></span>
   </a>
@@ -10,7 +8,7 @@
       <li class="dropdown-item"><%= link_to achievement.periodical_inspection.name, user_personal_achievement_test_path(@user, achievement.id) %></li>
     <% end %>
   </ul></li>
-  <li><a class="btn dropdown-toggle" id="dropdownMenu2" data-toggle="dropdown">
+  <li class="col-3 col-md-12"><a class="btn dropdown-toggle" id="dropdownMenu2" data-toggle="dropdown">
     通知表
     <span class="caret"></span>
   </a>
@@ -19,6 +17,6 @@
       <li class="dropdown-item"><%= link_to report.schoolyear_and_schoolterm.name, user_report_card_path(@user, report.id) %></li>
     <% end %>
   </ul></li>
-  <li><%= link_to "定期考査登録", new_user_personal_achievement_test_path(current_user) %></li>
-  <li><%= link_to "通知表登録", new_user_report_card_path(current_user) %></li>
+  <li class="col-3 col-md-12"><%= link_to "定期考査登録", new_user_personal_achievement_test_path(current_user), :style=>"color:#333" %></li>
+  <li class="col-3 col-md-12"><%= link_to "通知表登録", new_user_report_card_path(current_user), :style=>"color:#333" %></li>
 </ul>
