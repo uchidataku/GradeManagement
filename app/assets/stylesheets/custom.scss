@@ -1,5 +1,9 @@
 @import "bootstrap";
 
+body {
+  background-color: #f6f6f3;
+}
+
 #error_explanation{
   color: #f33;
   h2{
@@ -11,6 +15,10 @@
 }
 
 // headerのCSS
+header{
+  width: 100%;
+}
+
 .navbar-brand{
   font-size: 30px;
   margin-left: 20px;
@@ -23,6 +31,20 @@
   cursor: pointer;
   p{
     margin-bottom: auto;
+  }
+}
+
+// footerのcss
+footer{
+  background-color: rgb(51,58,64);
+  color: #fff;
+  height: 50px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  p{
+    margin-bottom: 0;
   }
 }
 
