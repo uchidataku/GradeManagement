@@ -61,29 +61,47 @@ aside{
 
 article{
   background-color: #fff;
+  margin-top: 30px;
+  padding-top: 20px;
 }
 
-.box26 {
+.toppage_profilename{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.toppage_profile_img{
+  margin-right: 15px;
+  img{
+    border-radius: 50%;
+  }
+}
+
+.toppage_profile_name{
+  margin-right: 15px;
+}
+
+.toppage_infobox {
     position: relative;
-    margin: 2em 0;
+    margin: 30px 0;
     padding: 25px 10px 7px;
     border: solid 0.5px #FFC107;
 }
-.box26 .box-title {
+.toppage_infobox .box-title {
     position: absolute;
     display: inline-block;
     top: -0.5px;
     left: -0.5px;
     padding: 0 9px;
-    height: 25px;
-    line-height: 25px;
+    height: 20px;
+    line-height: 20px;
     font-size: 17px;
     background: #FFC107;
-    color: #ffffff;
-    font-weight: bold;
+    color: #fff;
 }
-.box26 p {
-    margin: 0;
+.toppage_infobox p {
+    margin: 0 10px;
     padding: 0;
 }
 

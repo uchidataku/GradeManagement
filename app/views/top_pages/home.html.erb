@@ -4,26 +4,29 @@
       <%= render 'layouts/sidebar' %>
     </aside>
     <article class="col-xs-12 col-md-9 maincontent">
-      <header>
-        <div class="registration_title">
+      <div class="toppage_profilename">
+        <div class="toppage_profile_img">
+          <%= image_tag "sample.jpeg", size: "120x120" %>
+        </div>
+        <div class="toppage_profile_name">
           <h4><%= @user.full_name_kanji %></h4>
         </div>
-      </header>
+      </div>
       <section>
-        <div class="box26">
+        <div class="toppage_infobox">
           <span class="box-title">お知らせ</span>
           <p>お知らせはありません。</p>
         </div>
-        <div class="box26">
+        <div class="toppage_infobox">
           <span class="box-title">定期考査</span>
           <ul><% @personal_achievement_test.each do |achievement| %>
-            <li><%= link_to achievement.periodical_inspection.name, user_personal_achievement_test_path(@user, achievement.id) %></li>
+            <li><%= link_to achievement.periodical_inspection.name, user_personal_achievement_test_path(@user, achievement.id), :style=>"color:#333" %></li>
           <% end %></ul>
         </div>
-        <div class="box26">
+        <div class="toppage_infobox">
           <span class="box-title">通知表</span>
           <ul><% @report_cards.each do |report| %>
-            <li><%= link_to report.schoolyear_and_schoolterm.name, user_report_card_path(@user, report.id) %></li>
+            <li><%= link_to report.schoolyear_and_schoolterm.name, user_report_card_path(@user, report.id), :style=>"color:#333" %></li>
           <% end %></ul>
         </div>
       </section>
