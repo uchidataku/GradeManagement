@@ -63,6 +63,7 @@ article{
   background-color: #fff;
   margin-top: 30px;
   padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .toppage_profilename{
@@ -136,10 +137,12 @@ article{
 // 新規登録ページ・ログインページ・編集ページ共通のCSS
 
 .registration_title{
-  color: #ddd;
+  color: #333;
   padding: 15px;
   margin-top: 20px;
   margin-bottom: 20px;
+  border: solid 0.5px #FFC107;
+  text-align: center;
 }
 
 .registration_box{
@@ -158,7 +161,7 @@ article{
 }
 
 .item_leftbox{
-  color: #fff;
+  color: #333;
   padding: 15px;
   border-radius: 10px/10px;
 }
@@ -202,11 +205,13 @@ article{
 .personalpoints-subtitle{
   margin-top: 15px;
   margin-bottom: 25px;
+  text-align: center;
 }
 
 .averagepoints-subtitle{
   margin-top: 15px;
   margin-bottom: 25px;
+  text-align: center;
 }
 
 table{
@@ -216,4 +221,8 @@ table{
 
 th,td{
   border: solid 1px #333;
+}
+
+.registration_submit_btn{
+  text-align: center;
 }

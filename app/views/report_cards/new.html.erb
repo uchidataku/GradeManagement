@@ -19,22 +19,26 @@
             </div>
           </div>
           <div class="col-xs-12 col-md-2 input_rightbox">
-            <%= f.select :schoolyear_and_schoolterm_id, [["中学1年1学期", 1],
-                                                    ["中学1年2学期", 2],
-                                                    ["中学1年3学期", 3],
-                                                    ["中学2年1学期", 4],
-                                                    ["中学2年2学期", 5],
-                                                    ["中学2年3学期", 6],
-                                                    ["中学3年1学期", 7],
-                                                    ["中学3年2学期", 8],
-                                                    ["中学3年3学期", 9],
-                                                    ["中学1年前期", 10],
-                                                    ["中学1年後期", 11],
-                                                    ["中学2年前期", 12],
-                                                    ["中学2年後期", 13],
-                                                    ["中学3年前期", 14],
-                                                    ["中学3年後期", 15]]
-                                                    %>
+            <% if @user.term == "3" %>
+              <%= f.select :schoolyear_and_schoolterm_id, [["中学1年1学期", 1],
+                                                           ["中学1年2学期", 2],
+                                                           ["中学1年3学期", 3],
+                                                           ["中学2年1学期", 4],
+                                                           ["中学2年2学期", 5],
+                                                           ["中学2年3学期", 6],
+                                                           ["中学3年1学期", 7],
+                                                           ["中学3年2学期", 8],
+                                                           ["中学3年3学期", 9]]
+                                                           %>
+            <% elsif @user.term == "2" %>
+              <%= f.select :schoolyear_and_schoolterm_id, [["中学1年前期", 10],
+                                                           ["中学1年後期", 11],
+                                                           ["中学2年前期", 12],
+                                                           ["中学2年後期", 13],
+                                                           ["中学3年前期", 14],
+                                                           ["中学3年後期", 15]]
+                                                           %>
+            <% end %>
           </div>
           <div class="offset-md-7"></div>
         </div>
@@ -42,7 +46,7 @@
           <h6>個人結果</h6>
         </div>
         <div class="row justify-content-center personal_achievement_tests_box">
-          <table class="col-md-12">
+          <table class="col-md-11">
             <tr>
               <th>教科</th><th>観点別/学習状況</th><th>評価</th><th>評定</th>
             </tr>
@@ -177,7 +181,9 @@
             </div>
           </table>
         </div>
-        <%= f.submit "登録する", class: "btn btn-primary" %>
+        <div class="registration_submit_btn">
+          <%= f.submit "登録する", class: "btn btn-primary" %>
+        </div>
       <% end %>
     </section>
   </article>
