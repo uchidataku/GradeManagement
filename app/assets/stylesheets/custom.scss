@@ -66,6 +66,22 @@ article{
   padding-bottom: 20px;
 }
 
+.home_title{
+  text-align: center;
+}
+
+@media screen and (min-width: 650px){
+  .br-sp { display:none; }
+}
+
+.home_title_description{
+  text-align: center;
+}
+
+.home_title_btn{
+  text-align: center;
+}
+
 .toppage_profilename{
   display: flex;
   justify-content: center;

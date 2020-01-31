@@ -142,6 +142,21 @@
   <div class="row justify-content-center registration_box">
     <div class="col-xs-12 col-md-5 item_leftbox">
       <div class="item">
+        <h5><%= f.label :image, "プロフィール画像" %></h5>
+      </div>
+    </div>
+    <div class="col-xs-12 col-md-7 input_rightbox">
+      <% if @user.image? %>
+        <%= image_tag @user.image.url, size:"200x200" %>
+      <% else %>
+        <%= image_tag "no_image.png", size:"200x200" %>
+      <% end %>
+      <%= f.file_field :image, accept: 'image/jpeg,image/gif,image/png' %>
+    </div>
+  </div>
+  <div class="row justify-content-center registration_box">
+    <div class="col-xs-12 col-md-5 item_leftbox">
+      <div class="item">
         <h5><%= f.label :current_password, "現在のパスワード" %></h5>
         <small>※必須</small>
       </div>

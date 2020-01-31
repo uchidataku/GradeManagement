@@ -6,7 +6,11 @@
     <article class="col-xs-12 col-md-9 maincontent">
       <div class="toppage_profilename">
         <div class="toppage_profile_img">
-          <%= image_tag "sample.jpeg", size: "120x120" %>
+          <% if @user.image? %>
+            <%= image_tag @user.image.url, size:"120x120" %>
+          <% else %>
+            <%= image_tag "no_image.png", size:"120x120" %>
+          <% end %>
         </div>
         <div class="toppage_profile_name">
           <h4><%= @user.full_name_kanji %></h4>
@@ -33,12 +37,15 @@
     </article>
   </main>
 <% else %>
-  <main role="main" class="inner cover">
-    <h2 class="cover-heading">GradeManagementへようこそ</h2>
-    <p class="lead"></p>
-    <p class="lead">
-      <li class="btn btn-lg btn-primary"><%= link_to "新規登録", new_user_registration_path %></li>
-      <li class="btn btn-lg btn-primary"><%= link_to "ログイン", new_user_session_path %></li>
-    </p>
+  <main>
+    <div class="jumbotron jumbotron-fluid">
+      <h2 class="home_title display-4 col-md-12">Welcome to <br class="br-sp">GradeManagement</h2>
+      <p class="home_title_description">本サービスは、成績管理に役立つツールです。</p>
+      <hr class="my-4">
+      <div class="home_title_btn">
+        <button class="home_title_newbtn btn btn-primary"><%= link_to "新規登録", new_user_registration_path, :style=>"color:#fff" %></button>
+        <button class="home_title_loginbtn btn btn-primary"><%= link_to "ログイン", new_user_session_path, :style=>"color:#fff" %></button>
+      </div>
+    </div>
   </main>
 <% end %>
