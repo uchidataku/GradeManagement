@@ -19,6 +19,10 @@ header{
   width: 100%;
 }
 
+.topnav-header{
+  height: 71px;
+}
+
 .navbar-brand{
   font-size: 30px;
   margin-left: 40px;
@@ -50,18 +54,25 @@ footer{
 
 // topページのCSS
 
-.container{
-  margin-top: 60px;
+.container-fluid{
+  margin-bottom: 60px;
+}
+
+.notice{
+  text-align: center;
+  background-color: #3c6;
+}
+
+.alert{
+  text-align: center;
 }
 
 aside{
-  margin: 20px;
-  margin-top: 30px;
+  margin: 0 20px 0;
 }
 
 article{
   background-color: #fff;
-  margin-top: 30px;
   padding-top: 20px;
   padding-bottom: 20px;
 }
@@ -146,8 +157,13 @@ article{
     display: inline-block;
     float: left;
   }
+  small{
+    text-align: center;
+    display: block;
+  }
   h5{
     border-bottom: thin solid;
+    text-align: center;
   }
 }
 // 新規登録ページ・ログインページ・編集ページ共通のCSS
@@ -166,10 +182,12 @@ article{
 }
 
 .login_title{
-  color: #ddd;
+  color: #333;
   padding: 15px;
   margin-top: 20px;
   margin-bottom: 20px;
+  border: solid 0.5px #FFC107;
+  text-align: center;
 }
 
 .login_box{
@@ -208,12 +226,18 @@ article{
   }
 }
 
+.remember_me{
+  text-align: center;
+}
+
 .link{
   margin: 15px;
+  text-align: center;
 }
 
 .back_button{
   margin: 15px;
+  text-align: center;
 }
 
 // 定期考査登録ページのCSS
@@ -239,6 +263,8 @@ th,td{
   border: solid 1px #333;
 }
 
-.registration_submit_btn{
+// 登録ページ共通のボタン
+
+.submit_btn{
   text-align: center;
 }

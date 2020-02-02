@@ -6,7 +6,4 @@ class TopPagesController < ApplicationController
       @report_cards = @user.report_cards.all
     end
   end
-
-  def help
-  end
 end
