@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   }
   devise_scope :user do
     get '/users/:id', to: 'users#show', as: :user
+    get '/users', to: 'users#index', as: :users
   end
   resources :users, only: [:show] do
     resources :personal_achievement_tests, only: [:new, :show, :create, :destroy]

@@ -139,7 +139,6 @@ article{
 }
 
 .sidebar ul li {
-
   display: flex;
   justify-content: center;
   align-items: center;
@@ -267,4 +266,22 @@ th,td{
 
 .submit_btn{
   text-align: center;
+}
+
+// indexページのCSS
+
+.user-index-image{
+  text-align: center;
+  img{
+    border-radius: 50%;
+  }
+}
+
+.user-index-name{
+  display: flex;
+  align-items: center;
+}
+
+.pagination{
+  margin: 20px;
 }
