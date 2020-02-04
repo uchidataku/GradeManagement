@@ -1,0 +1,52 @@
+FactoryBot.define do
+  factory :report_card do
+    user_id { 1 }
+    schoolyear_and_schoolterm_id { 1 }
+    japanese { 3 }
+    ja_column1 { "B" }
+    ja_column2 { "B" }
+    ja_column3 { "B" }
+    ja_column4 { "B" }
+    ja_column5 { "B" }
+    mathematics { 3 }
+    ma_column1 { "B" }
+    ma_column2 { "B" }
+    ma_column3 { "B" }
+    ma_column4 { "B" }
+    english { 3 }
+    en_column1 { "B" }
+    en_column2 { "B" }
+    en_column3 { "B" }
+    en_column4 { "B" }
+    science { 3 }
+    sc_column1 { "B" }
+    sc_column2 { "B" }
+    sc_column3 { "B" }
+    sc_column4 { "B" }
+    social_studies { 3 }
+    so_column1 { "B" }
+    so_column2 { "B" }
+    so_column3 { "B" }
+    so_column4 { "B" }
+    music { 3 }
+    mu_column1 { "B" }
+    mu_column2 { "B" }
+    mu_column3 { "B" }
+    mu_column4 { "B" }
+    fine_arts { 3 }
+    fi_column1 { "B" }
+    fi_column2 { "B" }
+    fi_column3 { "B" }
+    fi_column4 { "B" }
+    technical_arts_and_home_economics { 3 }
+    te_column1 { "B" }
+    te_column2 { "B" }
+    te_column3 { "B" }
+    te_column4 { "B" }
+    health_and_physical_education { 3 }
+    he_column1 { "B" }
+    he_column2 { "B" }
+    he_column3 { "B" }
+    he_column4 { "B" }
+  end
+end

@@ -5,7 +5,7 @@ FactoryBot.define do
     lastname_kanji { "太郎" }
     firstname_kana { "ヤマダ" }
     lastname_kana { "タロウ" }
-    school_name { "サンプル小学校" }
+    school_name { "サンプル中学校" }
     school_year_id { 7 }
     term { 3 }
     sex { "男" }
