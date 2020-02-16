@@ -11,7 +11,7 @@
       </div>
     </div>
     <div class="col-xs-12 col-md-6 input_rightbox">
-      <%= f.email_field :email, autocomplete: "email", placeholder: "abc@example.com", class: "form-control" %>
+      <%= f.email_field :email, autocomplete: "email", placeholder: "abc@example.com", class: "form-control", id: "email-area" %>
     </div>
   </div>
   <div class="row justify-content-center login_box">
@@ -21,7 +21,7 @@
       </div>
     </div>
     <div class="col-xs-12 col-md-6 input_rightbox">
-      <%= f.password_field :password, autocomplete: "password", placeholder: "password", class: "form-control" %>
+      <%= f.password_field :password, autocomplete: "password", placeholder: "password", class: "form-control", id: "password-area" %>
     </div>
   </div>
   <div class="remember_me">
@@ -37,3 +37,18 @@
 <div class="link">
   <%= link_to "未登録の方はこちら", new_user_registration_path %>
 </div>
+
+<div class="recruit">
+  <h5>採用担当者様へ</h5>
+  <p>↓のボタンを押してください。ログイン情報が自動入力されます。</p>
+  <button type="button" id="recruit_button">採用担当者様専用アカウント</button>
+</div>
+
+<script>
+  $(function(){
+    $('#recruit_button').click(function(){
+      $('#email-area').val("sample@example.com");
+      $('#password-area').val("password")
+    });
+  });
+</script>

@@ -81,3 +81,18 @@ SchoolyearAndSchoolterm.create!(
     { id: 15, name: "中学3年後期" }
   ]
 )
+
+User.create!(
+  firstname_kanji: "山田",
+  lastname_kanji: "太郎",
+  firstname_kana: "ヤマダ",
+  lastname_kana: "タロウ",
+  email: "sample@example.com",
+  password: "password",
+  password_confirmation: "password",
+  cram_schoolhouse_id: 1,
+  school_name: "サンプル中学校",
+  school_year_id: 9,
+  term: 3,
+  birthday: "2000-11-11"
+)
