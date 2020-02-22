@@ -11,6 +11,6 @@ class UsersController < ApplicationController
     @user = current_user
     @personal_achievement_test = @user.personal_achievement_tests.all
     @report_cards = @user.report_cards.all
-    @users = User.paginate(page: params[:page], per_page: 3)
+    @users = User.paginate(page: params[:page], per_page: 10)
   end
 end
