@@ -1,24 +1,12 @@
-# README
+# Grade-management
+学習塾運営に役立つ、生徒の成績管理を手助けするツールです。
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+#アプリ概要
+生徒自身がユーザー登録をし、各通知表の数字や各定期考査の点数を入力し、点数を比較表示できます。
+各校舎ごとに生徒の
+学習塾において、生徒の成績を上げることは最重要任務であり、その成績を管理し、普段の授業等に活用していくことは大事な要素となっております。
 
-Things you may want to cover:
 
-* Ruby version
+#技術的ポイント
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+#機能
