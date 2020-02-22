@@ -274,16 +274,21 @@ th,td{
 
 // indexページのCSS
 
-.user-index-image{
-  text-align: center;
-  img{
-    border-radius: 50%;
+.user-index{
+  display: flex;
+  flex-direction: column;
+  a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
 
-.user-index-name{
-  display: flex;
-  align-items: center;
+.user-index-image{
+  display: inline-block;
+  img{
+    border-radius: 50%;
+  }
 }
 
 .pagination{

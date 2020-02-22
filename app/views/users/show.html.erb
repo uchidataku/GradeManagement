@@ -28,14 +28,16 @@
         <h6>生年月日</h6>
         <h5><%= @user.birthday %></h5>
       </div>
-      <div class="col-md-6 offset-md-3 profile-boxitem">
-        <h6>メールアドレス</h6>
-        <h5><%= @user.email %></h5>
-      </div>
-      <div class="">
-        <%= link_to "プロフィール編集", edit_user_registration_path(current_user) %>
-        <%= link_to "アカウント削除", registration_path(current_user), data: { confirm: "本当によろしいですか?" }, method: :delete  %>
-      </div>
+      <% if @user == current_user %>
+        <div class="col-md-6 offset-md-3 profile-boxitem">
+          <h6>メールアドレス</h6>
+          <h5><%= @user.email %></h5>
+        </div>  
+        <div class="">
+          <%= link_to "プロフィール編集", edit_user_registration_path(current_user) %>
+          <%= link_to "アカウント削除", registration_path(current_user), data: { confirm: "本当によろしいですか?" }, method: :delete  %>
+        </div>
+      <% end %>
     </section>
   </article>
 </main>
