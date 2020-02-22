@@ -1,30 +1,7 @@
 <% provide(:title, "定期考査登録") %>
 <main class="row">
-  <aside class="col-md-3 sidebar">
-    <ul>
-      <li><%= link_to "マイページ", user_path(current_user) %></li>
-      <li><%= link_to "お知らせ", "#" %></li>
-      <li><a class="btn dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">
-        定期考査
-        <span class="caret"></span>
-      </a>
-      <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-        <% @personal_achievement_test.each do |achievement| %>
-          <li class="dropdown-item"><%= link_to achievement.periodical_inspection.name, user_personal_achievement_test_path(@user, achievement.id) %></li>
-        <% end %>
-      </ul></li>
-      <li><a class="btn dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">
-        通知表
-        <span class="caret"></span>
-      </a>
-      <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-        <% @report_cards.each do |report| %>
-          <li class="dropdown-item"><%= link_to report.schoolyear_and_schoolterm.name, user_report_card_path(@user, report.id) %></li>
-        <% end %>
-      </ul></li>
-      <li><%= link_to "定期考査登録", new_user_personal_achievement_test_path(current_user) %></li>
-      <li><%= link_to "通知表登録", new_user_report_card_path(current_user) %></li>
-    </ul>
+  <aside class="col-md-2 sidebar">
+    <%= render 'layouts/sidebar' %>
   </aside>
   <article class="col-xs-12 col-md-9 maincontent">
     <header>
@@ -42,34 +19,38 @@
             </div>
           </div>
           <div class="col-xs-12 col-md-2 input_rightbox">
-            <%= f.select :periodical_inspection_id, [["中学1年1学期中間考査", 1],
-                                                    ["中学1年1学期期末考査", 2],
-                                                    ["中学1年2学期中間考査", 3],
-                                                    ["中学1年2学期期末考査", 4],
-                                                    ["中学1年3学期学年末考査", 5],
-                                                    ["中学2年1学期中間考査", 6],
-                                                    ["中学2年1学期期末考査", 7],
-                                                    ["中学2年2学期中間考査", 8],
-                                                    ["中学2年2学期期末考査", 9],
-                                                    ["中学2年3学期学年末考査", 10],
-                                                    ["中学3年1学期中間考査", 11],
-                                                    ["中学3年1学期期末考査", 12],
-                                                    ["中学3年2学期中間考査", 13],
-                                                    ["中学3年2学期期末考査", 14],
-                                                    ["中学3年3学期学年末考査", 15],
-                                                    ["中学1年前期中間考査", 16],
-                                                    ["中学1年前期期末考査", 17],
-                                                    ["中学1年後期中間考査", 18],
-                                                    ["中学1年後期期末考査", 19],
-                                                    ["中学2年前期中間考査", 20],
-                                                    ["中学2年前期期末考査", 21],
-                                                    ["中学2年後期中間考査", 22],
-                                                    ["中学2年後期期末考査", 23],
-                                                    ["中学3年前期中間考査", 24],
-                                                    ["中学3年前期期末考査", 25],
-                                                    ["中学3年後期中間考査", 26],
-                                                    ["中学3年後期期末考査", 27]]
-                                                    %>
+            <% if @user.term == "3" %>
+              <%= f.select :periodical_inspection_id, [["中学1年1学期中間考査", 1],
+                                                       ["中学1年1学期期末考査", 2],
+                                                       ["中学1年2学期中間考査", 3],
+                                                       ["中学1年2学期期末考査", 4],
+                                                       ["中学1年3学期学年末考査", 5],
+                                                       ["中学2年1学期中間考査", 6],
+                                                       ["中学2年1学期期末考査", 7],
+                                                       ["中学2年2学期中間考査", 8],
+                                                       ["中学2年2学期期末考査", 9],
+                                                       ["中学2年3学期学年末考査", 10],
+                                                       ["中学3年1学期中間考査", 11],
+                                                       ["中学3年1学期期末考査", 12],
+                                                       ["中学3年2学期中間考査", 13],
+                                                       ["中学3年2学期期末考査", 14],
+                                                       ["中学3年3学期学年末考査", 15]]
+                                                       %>
+            <% elsif @user.term == "2" %>
+              <%= f.select :periodical_inspection_id,[["中学1年前期中間考査", 16],
+                                                      ["中学1年前期期末考査", 17],
+                                                      ["中学1年後期中間考査", 18],
+                                                      ["中学1年後期期末考査", 19],
+                                                      ["中学2年前期中間考査", 20],
+                                                      ["中学2年前期期末考査", 21],
+                                                      ["中学2年後期中間考査", 22],
+                                                      ["中学2年後期期末考査", 23],
+                                                      ["中学3年前期中間考査", 24],
+                                                      ["中学3年前期期末考査", 25],
+                                                      ["中学3年後期中間考査", 26],
+                                                      ["中学3年後期期末考査", 27]]
+                                                      %>
+            <% end %>
           </div>
           <div class="offset-md-7"></div>
         </div>
@@ -322,7 +303,9 @@
           </div>
           <div class="offset-md-5"></div>
         </div>
-        <%= f.submit "登録する", class: "btn btn-primary" %>
+        <div class="submit_btn">
+          <%= f.submit "登録する", class: "btn btn-primary" %>
+        </div>
       <% end %>
     </section>
   </article>

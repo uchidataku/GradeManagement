@@ -1,83 +1,242 @@
 <% provide(:title, "定期考査") %>
 <main class="row">
-  <aside class="col-md-3 sidebar">
-    <ul>
-      <li><%= link_to "マイページ", user_path(current_user) %></li>
-      <li><%= link_to "お知らせ", "#" %></li>
-      <li><a class="btn dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">
-        定期考査
-        <span class="caret"></span>
-      </a>
-      <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-        <% @personal_achievement_test.each do |achievement| %>
-          <li class="dropdown-item"><%= link_to achievement.periodical_inspection.name, user_personal_achievement_test_path(@user, achievement.id) %></li>
-        <% end %>
-      </ul></li>
-      <li><a class="btn dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">
-        通知表
-        <span class="caret"></span>
-      </a>
-      <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-        <% @report_cards.each do |report| %>
-          <li class="dropdown-item"><%= link_to report.schoolyear_and_schoolterm.name, user_report_card_path(@user, report.id) %></li>
-        <% end %>
-      </ul></li>
-      <li><%= link_to "定期考査登録", new_user_personal_achievement_test_path(current_user) %></li>
-      <li><%= link_to "通知表登録", new_user_report_card_path(current_user) %></li>
-    </ul>
+  <aside class="col-md-2 sidebar">
+    <%= render 'layouts/sidebar' %>
   </aside>
   <article class="col-xs-12 col-md-9 maincontent">
     <header>
       <div class="registration_title">
         <h3>《定期考査結果》</h3>
+        <h5>[<%= @testpoint.periodical_inspection.name %>]</h5>
       </div>
     </header>
     <section>
-      <div class="col-md-6 offset-md-3 profile-boxitem">
-        <h6>国語</h6>
-        <h5><%= @testpoint.japanese %></h5>
+      <div class="row">
+        <div class="col-md-3 testpoint-boxlist">
+          科目
+        </div>
+        <div class="col-md-3 testpoint-boxlist">
+          得点
+        </div>
+        <div class="col-md-3 testpoint-boxlist">
+          平均点
+        </div>
+        <div class="col-md-3 testpoint-boxlist">
+          平均点比較
+        </div>
+        <div class="col-md-3 testpoint-boxitem">
+          <h5>国語</h5>
+        </div>
+        <div class="col-md-3 testpoint-boxitem">
+          <h5><%= @testpoint.japanese %></h5>
+        </div>
+        <div class="col-md-3 testpoint-boxitem">
+          <%= @testpoint.average_japanese %>
+        </div>
+        <% if @testpoint.japanese-@testpoint.average_japanese >0 %>
+          <div class="col-md-3 testpoint-boxitem ave-comparison" style="color: blue">
+            <%= @testpoint.japanese-@testpoint.average_japanese %>
+          </div>
+        <% else %>
+          <div class="col-md-3 testpoint-boxitem ave-comparison" style="color: red">
+            <%= @testpoint.japanese-@testpoint.average_japanese %>
+          </div>
+        <% end %>
+        <div class="col-md-3 testpoint-boxitem">
+          <h5>数学</h5>
+        </div>
+        <div class="col-md-3 testpoint-boxitem">
+          <h5><%= @testpoint.mathematics %></h5>
+        </div>
+        <div class="col-md-3 testpoint-boxitem">
+          <%= @testpoint.average_mathematics %>
+        </div>
+        <% if @testpoint.mathematics-@testpoint.average_mathematics >0 %>
+          <div class="col-md-3 testpoint-boxitem ave-comparison" style="color: blue">
+            <%= @testpoint.mathematics-@testpoint.average_mathematics %>
+          </div>
+        <% else %>
+          <div class="col-md-3 testpoint-boxitem ave-comparison" style="color: red">
+            <%= @testpoint.mathematics-@testpoint.average_mathematics %>
+          </div>
+        <% end %>
+        <div class="col-md-3 testpoint-boxitem">
+          <h5>英語</h5>
+        </div>
+        <div class="col-md-3 testpoint-boxitem">
+          <h5><%= @testpoint.english %></h5>
+        </div>
+        <div class="col-md-3 testpoint-boxitem">
+          <%= @testpoint.average_english %>
+        </div>
+        <% if @testpoint.english-@testpoint.average_english >0 %>
+          <div class="col-md-3 testpoint-boxitem ave-comparison" style="color: blue">
+            <%= @testpoint.english-@testpoint.average_english %>
+          </div>
+        <% else %>
+          <div class="col-md-3 testpoint-boxitem ave-comparison" style="color: red">
+            <%= @testpoint.english-@testpoint.average_english %>
+          </div>
+        <% end %>
+        <div class="col-md-3 testpoint-boxitem">
+          <h5>理科</h5>
+        </div>
+        <div class="col-md-3 testpoint-boxitem">
+          <h5><%= @testpoint.science %></h5>
+        </div>
+        <div class="col-md-3 testpoint-boxitem">
+          <%= @testpoint.average_science %>
+        </div>
+        <% if @testpoint.science-@testpoint.average_science >0 %>
+          <div class="col-md-3 testpoint-boxitem ave-comparison" style="color: blue">
+            <%= @testpoint.science-@testpoint.average_science %>
+          </div>
+        <% else %>
+          <div class="col-md-3 testpoint-boxitem ave-comparison" style="color: red">
+            <%= @testpoint.science-@testpoint.average_science %>
+          </div>
+        <% end %>
+        <div class="col-md-3 testpoint-boxitem">
+          <h5>社会</h5>
+        </div>
+        <div class="col-md-3 testpoint-boxitem">
+          <h5><%= @testpoint.social_studies %></h5>
+        </div>
+        <div class="col-md-3 testpoint-boxitem">
+          <%= @testpoint.average_social_studies %>
+        </div>
+        <% if @testpoint.social_studies-@testpoint.average_social_studies >0 %>
+          <div class="col-md-3 testpoint-boxitem ave-comparison" style="color: blue">
+            <%= @testpoint.social_studies-@testpoint.average_social_studies %>
+          </div>
+        <% else %>
+          <div class="col-md-3 testpoint-boxitem ave-comparison" style="color: red">
+            <%= @testpoint.social_studies-@testpoint.average_social_studies %>
+          </div>
+        <% end %>
+        <div class="col-md-12 totalitem">
+          <div class="col-md-3 testpoint-boxitem">
+            <h5>5教科合計</h5>
+          </div>
+          <div class="col-md-3 testpoint-boxitem">
+            <h5><%= @testpoint.five_subjects_total %></h5>
+          </div>
+          <div class="col-md-3 testpoint-boxitem">
+            <%= @testpoint.average_five_subjects_total %>
+          </div>
+          <% if @testpoint.five_subjects_total-@testpoint.average_five_subjects_total >0 %>
+            <div class="col-md-3 testpoint-boxitem ave-comparison" style="color: blue">
+              <%= @testpoint.five_subjects_total-@testpoint.average_five_subjects_total %>
+            </div>
+          <% else %>
+            <div class="col-md-3 testpoint-boxitem ave-comparison" style="color: red">
+              <%= @testpoint.five_subjects_total-@testpoint.average_five_subjects_total %>
+            </div>
+          <% end %>
+        </div>
+        <% unless @testpoint.music == nil %>
+          <div class="col-md-3 testpoint-boxitem">
+            <h5>音楽</h5>
+          </div>
+          <div class="col-md-3 testpoint-boxitem">
+            <h5><%= @testpoint.music %></h5>
+          </div>
+          <div class="col-md-3 testpoint-boxitem">
+            <%= @testpoint.average_music %>
+          </div>
+          <% if @testpoint.music-@testpoint.average_music >0 %>
+            <div class="col-md-3 testpoint-boxitem ave-comparison" style="color: blue">
+              <%= @testpoint.music-@testpoint.average_music %>
+            </div>
+          <% else %>
+            <div class="col-md-3 testpoint-boxitem ave-comparison" style="color: red">
+              <%= @testpoint.music-@testpoint.average_music %>
+            </div>
+          <% end %>
+        <% end %>
+        <% unless @testpoint.fine_arts == nil %>
+          <div class="col-md-3 testpoint-boxitem">
+            <h5>美術</h5>
+          </div>
+          <div class="col-md-3 testpoint-boxitem">
+            <h5><%= @testpoint.fine_arts %></h5>
+          </div>
+          <div class="col-md-3 testpoint-boxitem">
+            <%= @testpoint.average_fine_arts %>
+          </div>
+          <% if @testpoint.fine_arts-@testpoint.average_fine_arts >0 %>
+            <div class="col-md-3 testpoint-boxitem ave-comparison" style="color: blue">
+              <%= @testpoint.fine_arts-@testpoint.average_fine_arts %>
+            </div>
+          <% else %>
+            <div class="col-md-3 testpoint-boxitem ave-comparison" style="color: red">
+              <%= @testpoint.fine_arts-@testpoint.average_fine_arts %>
+            </div>
+          <% end %>
+        <% end %>
+        <% unless @testpoint.technical_arts_and_home_economics == nil %>
+          <div class="col-md-3 testpoint-boxitem">
+            <h5>技術家庭</h5>
+          </div>
+          <div class="col-md-3 testpoint-boxitem">
+            <h5><%= @testpoint.technical_arts_and_home_economics %></h5>
+          </div>
+          <div class="col-md-3 testpoint-boxitem">
+            <%= @testpoint.average_technical_arts_and_home_economics %>
+          </div>
+          <% if @testpoint.technical_arts_and_home_economics-@testpoint.average_technical_arts_and_home_economics >0 %>
+            <div class="col-md-3 testpoint-boxitem ave-comparison" style="color: blue">
+              <%= @testpoint.technical_arts_and_home_economics-@testpoint.average_technical_arts_and_home_economics %>
+            </div>
+          <% else %>
+            <div class="col-md-3 testpoint-boxitem ave-comparison" style="color: red">
+              <%= @testpoint.technical_arts_and_home_economics-@testpoint.average_technical_arts_and_home_economics %>
+            </div>
+          <% end %>
+        <% end %>
+        <% unless @testpoint.health_and_physical_education == nil %>
+          <div class="col-md-3 testpoint-boxitem">
+            <h5>保健体育</h5>
+          </div>
+          <div class="col-md-3 testpoint-boxitem">
+            <h5><%= @testpoint.health_and_physical_education %></h5>
+          </div>
+          <div class="col-md-3 testpoint-boxitem">
+            <%= @testpoint.average_health_and_physical_education %>
+          </div>
+          <% if @testpoint.health_and_physical_education-@testpoint.average_health_and_physical_education >0 %>
+            <div class="col-md-3 testpoint-boxitem ave-comparison" style="color: blue">
+              <%= @testpoint.health_and_physical_education-@testpoint.average_health_and_physical_education %>
+            </div>
+          <% else %>
+            <div class="col-md-3 testpoint-boxitem ave-comparison" style="color: red">
+              <%= @testpoint.health_and_physical_education-@testpoint.average_health_and_physical_education %>
+            </div>
+          <% end %>
+        <% end %>
+        <% unless @testpoint.nine_subjects_total == nil %>
+          <div class="col-md-12 totalitem">
+            <div class="col-md-3 testpoint-boxitem">
+              <h5>9教科合計</h5>
+            </div>
+            <div class="col-md-3 testpoint-boxitem">
+              <h5><%= @testpoint.nine_subjects_total %></h5>
+            </div>
+            <div class="col-md-3 testpoint-boxitem">
+              <%= @testpoint.average_nine_subjects_total %>
+            </div>
+            <% if @testpoint.nine_subjects_total-@testpoint.average_nine_subjects_total >0 %>
+              <div class="col-md-3 testpoint-boxitem ave-comparison" style="color: blue">
+                <%= @testpoint.nine_subjects_total-@testpoint.average_nine_subjects_total %>
+              </div>
+            <% else %>
+              <div class="col-md-3 testpoint-boxitem ave-comparison" style="color: red">
+                <%= @testpoint.nine_subjects_total-@testpoint.average_nine_subjects_total %>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
       </div>
-      <div class="col-md-6 offset-md-3 profile-boxitem">
-        <h6>数学</h6>
-        <h5><%= @testpoint.mathematics %></h5>
-      </div>
-      <div class="col-md-6 offset-md-3 profile-boxitem">
-        <h6>英語</h6>
-        <h5><%= @testpoint.english %></h5>
-      </div>
-      <div class="col-md-6 offset-md-3 profile-boxitem">
-        <h6>理科</h6>
-        <h5><%= @testpoint.science %></h5>
-      </div>
-      <div class="col-md-6 offset-md-3 profile-boxitem">
-        <h6>社会</h6>
-        <h5><%= @testpoint.social_studies %></h5>
-      </div>
-      <div class="col-md-6 offset-md-3 profile-boxitem">
-        <h6>5教科合計</h6>
-        <h5><%= @testpoint.five_subjects_total %></h5>
-      </div>
-      <div class="col-md-6 offset-md-3 profile-boxitem">
-        <h6>音楽</h6>
-        <h5><%= @testpoint.music %></h5>
-      </div>
-      <div class="col-md-6 offset-md-3 profile-boxitem">
-        <h6>美術</h6>
-        <h5><%= @testpoint.fine_arts %></h5>
-      </div>
-      <div class="col-md-6 offset-md-3 profile-boxitem">
-        <h6>技術家庭</h6>
-        <h5><%= @testpoint.technical_arts_and_home_economics %></h5>
-      </div>
-      <div class="col-md-6 offset-md-3 profile-boxitem">
-        <h6>保健体育</h6>
-        <h5><%= @testpoint.health_and_physical_education %></h5>
-      </div>
-      <div class="col-md-6 offset-md-3 profile-boxitem">
-        <h6>9教科合計</h6>
-        <h5><%= @testpoint.nine_subjects_total %></h5>
-      </div>
-
     </section>
   </article>
 </main>

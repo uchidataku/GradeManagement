@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_20_041400) do
+ActiveRecord::Schema.define(version: 2020_02_16_050455) do
 
   create_table "cram_schoolhouses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -138,6 +138,7 @@ ActiveRecord::Schema.define(version: 2020_01_20_041400) do
     t.string "sex"
     t.string "firstname_kana"
     t.string "term"
+    t.string "image"
     t.index ["cram_schoolhouse_id"], name: "index_users_on_cram_schoolhouse_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

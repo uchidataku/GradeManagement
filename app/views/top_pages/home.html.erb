@@ -1,64 +1,51 @@
 <% if user_signed_in? %>
   <main class="row">
-    <aside class="col-md-3 sidebar">
-      <ul>
-        <li><%= link_to "マイページ", user_path(current_user) %></li>
-        <li><%= link_to "お知らせ", "#" %></li>
-        <li><a class="btn dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">
-          定期考査
-          <span class="caret"></span>
-        </a>
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-          <% @personal_achievement_test.each do |achievement| %>
-            <li class="dropdown-item"><%= link_to achievement.periodical_inspection.name, user_personal_achievement_test_path(@user, achievement.id) %></li>
-          <% end %>
-        </ul></li>
-        <li><a class="btn dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">
-          通知表
-          <span class="caret"></span>
-        </a>
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-          <% @report_cards.each do |report| %>
-            <li class="dropdown-item"><%= link_to report.schoolyear_and_schoolterm.name, user_report_card_path(@user, report.id) %></li>
-          <% end %>
-        </ul></li>
-        <li><%= link_to "定期考査登録", new_user_personal_achievement_test_path(current_user) %></li>
-        <li><%= link_to "通知表登録", new_user_report_card_path(current_user) %></li>
-      </ul>
+    <aside class="col-md-2 sidebar">
+      <%= render 'layouts/sidebar' %>
     </aside>
     <article class="col-xs-12 col-md-9 maincontent">
-      <header>
-        <div class="registration_title">
+      <div class="toppage_profilename">
+        <div class="toppage_profile_img">
+          <% if @user.image? %>
+            <%= image_tag @user.image.url, size:"120x120" %>
+          <% else %>
+            <%= image_tag "no_image.png", size:"120x120" %>
+          <% end %>
+        </div>
+        <div class="toppage_profile_name">
           <h4><%= @user.full_name_kanji %></h4>
         </div>
-      </header>
+      </div>
       <section>
-        <div class="box26">
+        <div class="toppage_infobox">
           <span class="box-title">お知らせ</span>
           <p>お知らせはありません。</p>
         </div>
-        <div class="box26">
+        <div class="toppage_infobox">
           <span class="box-title">定期考査</span>
           <ul><% @personal_achievement_test.each do |achievement| %>
-            <li><%= link_to achievement.periodical_inspection.name, user_personal_achievement_test_path(@user, achievement.id) %></li>
+            <li><%= link_to achievement.periodical_inspection.name, user_personal_achievement_test_path(@user, achievement.id), :style=>"color:#333" %></li>
           <% end %></ul>
         </div>
-        <div class="box26">
+        <div class="toppage_infobox">
           <span class="box-title">通知表</span>
           <ul><% @report_cards.each do |report| %>
-            <li><%= link_to report.schoolyear_and_schoolterm.name, user_report_card_path(@user, report.id) %></li>
+            <li><%= link_to report.schoolyear_and_schoolterm.name, user_report_card_path(@user, report.id), :style=>"color:#333" %></li>
           <% end %></ul>
         </div>
       </section>
     </article>
   </main>
 <% else %>
-  <main role="main" class="inner cover">
-    <h2 class="cover-heading">GradeManagementへようこそ</h2>
-    <p class="lead"></p>
-    <p class="lead">
-      <li class="btn btn-lg btn-primary"><%= link_to "新規登録", new_user_registration_path %></li>
-      <li class="btn btn-lg btn-primary"><%= link_to "ログイン", new_user_session_path %></li>
-    </p>
+  <main>
+    <div class="jumbotron jumbotron-fluid">
+      <h2 class="home_title display-4 col-md-12">Welcome to <br class="br-sp">GradeManagement</h2>
+      <p class="home_title_description">本サービスは、成績管理に役立つツールです。</p>
+      <hr class="my-4">
+      <div class="home_title_btn">
+        <button class="home_title_newbtn btn btn-primary"><%= link_to "新規登録", new_user_registration_path, :style=>"color:#fff" %></button>
+        <button class="home_title_loginbtn btn btn-primary"><%= link_to "ログイン", new_user_session_path, :style=>"color:#fff" %></button>
+      </div>  
+    </div>
   </main>
 <% end %>

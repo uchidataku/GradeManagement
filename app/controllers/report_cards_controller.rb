@@ -1,4 +1,5 @@
 class ReportCardsController < ApplicationController
+  before_action :authenticate_user!
 
   def create
     @record = current_user.report_cards.new(record_params)

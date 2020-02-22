@@ -1,4 +1,5 @@
 class PersonalAchievementTestsController < ApplicationController
+  before_action :authenticate_user!
 
   def create
     @testpoint = current_user.personal_achievement_tests.new(testpoint_params)

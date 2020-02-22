@@ -1,5 +1,9 @@
 @import "bootstrap";
 
+body {
+  background-color: #f6f6f3;
+}
+
 #error_explanation{
   color: #f33;
   h2{
@@ -10,44 +14,190 @@
   }
 }
 
-// topページのCSS
-
-.toppage_news_box{
-  border-top: 0.3px solid #fff;
-  border-bottom: 0.3px solid #fff;
+// headerのCSS
+header{
+  width: 100%;
 }
 
-.box26 {
+.topnav-header{
+  height: 71px;
+}
+
+.navbar-brand{
+  font-size: 30px;
+  margin-left: 40px;
+}
+
+.navbar-nav{
+  color: #fff;
+  font-size: 15px;
+  margin-right: 40px;
+  cursor: pointer;
+  p{
+    margin-bottom: auto;
+  }
+}
+
+// footerのcss
+footer{
+  background-color: rgb(51,58,64);
+  color: #fff;
+  height: 50px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  p{
+    margin-bottom: 0;
+  }
+}
+
+// topページのCSS
+
+.container-fluid{
+  margin-bottom: 60px;
+}
+
+.notice{
+  text-align: center;
+  background-color: #3c6;
+}
+
+.alert{
+  text-align: center;
+}
+
+aside{
+  margin: 0 20px 0;
+}
+
+article{
+  background-color: #fff;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.home_title{
+  text-align: center;
+}
+
+@media screen and (min-width: 650px){
+  .br-sp { display:none; }
+}
+
+.home_title_description{
+  text-align: center;
+}
+
+.home_title_btn{
+  text-align: center;
+}
+
+.toppage_profilename{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.toppage_profile_img{
+  margin-right: 15px;
+  img{
+    border-radius: 50%;
+  }
+}
+
+.toppage_profile_name{
+  margin-right: 15px;
+}
+
+.toppage_infobox {
     position: relative;
-    margin: 2em 0;
+    margin: 30px 0;
     padding: 25px 10px 7px;
     border: solid 0.5px #FFC107;
 }
-.box26 .box-title {
+.toppage_infobox .box-title {
     position: absolute;
     display: inline-block;
     top: -0.5px;
     left: -0.5px;
     padding: 0 9px;
-    height: 25px;
-    line-height: 25px;
+    height: 20px;
+    line-height: 20px;
     font-size: 17px;
     background: #FFC107;
-    color: #ffffff;
-    font-weight: bold;
+    color: #fff;
 }
-.box26 p {
-    margin: 0;
+.toppage_infobox p {
+    margin: 0 10px;
     padding: 0;
+}
+
+.sidebar ul {
+  padding: 0;
+  position: relative;
+}
+
+.sidebar ul li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style-type: none!important;
+  background: linear-gradient(to bottom, whitesmoke 0%, #dadada 100%);/*グラデーション*/
+  height: 70px;
+}
+
+// ユーザーページのCSS
+
+.profile-boxitem{
+  margin-bottom: 50px;
+  h6{
+    opacity: 0.5;
+    display: inline-block;
+    float: left;
+  }
+  small{
+    text-align: center;
+    display: block;
+  }
+  h5{
+    border-bottom: thin solid;
+    text-align: center;
+  }
+}
+
+// 定期考査ページのCSS
+
+.testpoint-boxlist{
+  text-align: center;
+  opacity: 0.6;
+  margin-bottom: 15px;
+}
+
+.testpoint-boxitem{
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.totalitem{
+  border-bottom: solid 0.5px #888;
+  flex-wrap: nowrap;
+  display: flex;
+  margin-bottom: 10px;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 // 新規登録ページ・ログインページ・編集ページ共通のCSS
 
 .registration_title{
-  color: #ddd;
+  color: #333;
   padding: 15px;
   margin-top: 20px;
   margin-bottom: 20px;
+  border: solid 0.5px #FFC107;
+  text-align: center;
 }
 
 .registration_box{
@@ -55,10 +205,12 @@
 }
 
 .login_title{
-  color: #ddd;
+  color: #333;
   padding: 15px;
   margin-top: 20px;
   margin-bottom: 20px;
+  border: solid 0.5px #FFC107;
+  text-align: center;
 }
 
 .login_box{
@@ -66,7 +218,7 @@
 }
 
 .item_leftbox{
-  color: #fff;
+  color: #333;
   padding: 15px;
   border-radius: 10px/10px;
 }
@@ -83,7 +235,7 @@
 }
 
 .input_rightbox{
-  color: #fff;
+  color: #333;
   text-align: left;
   padding: 15px;
   select {
@@ -97,12 +249,22 @@
   }
 }
 
+.remember_me{
+  text-align: center;
+}
+
 .link{
   margin: 15px;
+  text-align: center;
 }
 
 .back_button{
   margin: 15px;
+  text-align: center;
+}
+
+.recruit{
+  margin: 20px;
 }
 
 // 定期考査登録ページのCSS
@@ -110,15 +272,13 @@
 .personalpoints-subtitle{
   margin-top: 15px;
   margin-bottom: 25px;
+  text-align: center;
 }
 
 .averagepoints-subtitle{
   margin-top: 15px;
   margin-bottom: 25px;
-}
-
-ul.dropdown-menu{
-  background-color: #444;
+  text-align: center;
 }
 
 table{
@@ -127,5 +287,34 @@ table{
 }
 
 th,td{
-  border: solid 1px #fff;
+  border: solid 1px #333;
+}
+
+// 登録ページ共通のボタン
+
+.submit_btn{
+  text-align: center;
+}
+
+// indexページのCSS
+
+.user-index{
+  display: flex;
+  flex-direction: column;
+  a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.user-index-image{
+  display: inline-block;
+  img{
+    border-radius: 50%;
+  }
+}
+
+.pagination{
+  margin: 20px;
 }

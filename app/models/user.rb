@@ -7,6 +7,7 @@ class User < ApplicationRecord
   belongs_to :school_year, class_name: "SchoolYear", foreign_key: "school_year_id", optional: true
   has_many :personal_achievement_tests, dependent: :destroy
   has_many :report_cards, dependent: :destroy
+  mount_uploader :image, ImageUploader
   validates :firstname_kanji, presence: true, length: { maximum: 50 }
   validates :lastname_kanji, presence: true, length: { maximum: 50 }
   validates :firstname_kana, presence: true, length: { maximum: 50 }
@@ -17,6 +18,7 @@ class User < ApplicationRecord
                     uniqueness: { case_sensitive: false }
   validates :school_name, presence: true, length: { maximum: 50 }
   validates :school_year_id, presence: true
+  validate :image_size
 
   def full_name_kanji
     "#{firstname_kanji} #{lastname_kanji}"
@@ -25,4 +27,11 @@ class User < ApplicationRecord
   def full_name_kana
     "#{firstname_kana} #{lastname_kana}"
   end
+
+  private
+    def image_size
+      if image.size > 5.megabytes
+        errors.add(:image, "5MB以上は登録できません")
+      end
+    end
 end

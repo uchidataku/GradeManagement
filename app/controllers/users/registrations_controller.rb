@@ -70,7 +70,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
       :sex,
       :birthday,
       :email,
-      :password
+      :password,
+      :image
     ])
   end
 

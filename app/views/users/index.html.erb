@@ -1,0 +1,38 @@
+<% provide(:title, "生徒一覧") %>
+<main class="row">
+  <aside class="col-md-2 sidebar">
+    <%= render 'layouts/sidebar' %>
+  </aside>
+  <article class="col-xs-12 col-md-9 maincontent">
+    <header>
+      <div class="registration_title">
+        <h3>《生徒一覧》</h3>
+      </div>
+    </header>
+    <section>
+      <%= will_paginate @users, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer, :previous_label => ' &lt 前へ', :next_label => '次へ &gt' %>
+        <div class="row user-index">
+          <% @users.each do |user| %>
+            <%= link_to user_path(user) do %>
+              <div class="col-3 col-md-2 user-index-image">
+                <% if user.image? %>
+                  <%= image_tag user.image.url, size:"80x80" %>
+                <% else %>
+                  <%= image_tag "no_image.png", size:"80x80" %>
+                <% end %>
+              </div>
+              <div class="col-5 col-md-4 user-index-name">
+                <div class="user-index-nameset">
+                  <small><%= user.full_name_kana %></small>
+                  <h5><%= user.full_name_kanji %></h5>
+                </div>
+              </div>
+              <div class="offset-4 offset-md-6">
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      <%= will_paginate @users, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer, :previous_label => ' &lt 前へ', :next_label => '次へ &gt' %>
+    </section>
+  </article>
+</main>

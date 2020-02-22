@@ -5,31 +5,50 @@
 </div>
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="row justify-content-center login_box">
-    <div class="col-xs-12 col-md-5 item_leftbox">
+    <div class="col-xs-12 col-md-4 item_leftbox">
       <div class="item">
         <h5><%= f.label :email, "メールアドレス" %></h5>
       </div>
     </div>
-    <div class="col-xs-12 col-md-7 input_rightbox">
-      <%= f.email_field :email, autocomplete: "email", placeholder: "abc@example.com", class: "form-control" %>
+    <div class="col-xs-12 col-md-6 input_rightbox">
+      <%= f.email_field :email, autocomplete: "email", placeholder: "abc@example.com", class: "form-control", id: "email-area" %>
     </div>
   </div>
   <div class="row justify-content-center login_box">
-    <div class="col-xs-12 col-md-5 item_leftbox">
+    <div class="col-xs-12 col-md-4 item_leftbox">
       <div class="item">
         <h5><%= f.label :password, "パスワード" %></h5>
       </div>
     </div>
-    <div class="col-xs-12 col-md-7 input_rightbox">
-      <%= f.password_field :password, autocomplete: "password", placeholder: "password", class: "form-control" %>
+    <div class="col-xs-12 col-md-6 input_rightbox">
+      <%= f.password_field :password, autocomplete: "password", placeholder: "password", class: "form-control", id: "password-area" %>
     </div>
   </div>
-  <% if devise_mapping.rememberable? %>
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me, "ログインしたままにする" %><br />
-  <% end %>
-  <%= f.submit "ログイン", class: "btn btn-primary" %>
+  <div class="remember_me">
+    <% if devise_mapping.rememberable? %>
+        <%= f.check_box :remember_me %>
+        <%= f.label :remember_me, "ログインしたままにする" %><br />
+    <% end %>
+  </div>
+  <div class="submit_btn">
+    <%= f.submit "ログイン", class: "btn btn-primary" %>
+  </div>
 <% end %>
 <div class="link">
   <%= link_to "未登録の方はこちら", new_user_registration_path %>
 </div>
+
+<div class="recruit">
+  <h5>採用担当者様へ</h5>
+  <p>↓のボタンを押してください。ログイン情報が自動入力されます。</p>
+  <button type="button" id="recruit_button">採用担当者様専用アカウント</button>
+</div>
+
+<script>
+  $(function(){
+    $('#recruit_button').click(function(){
+      $('#email-area').val("sample@example.com");
+      $('#password-area').val("password")
+    });
+  });
+</script>
