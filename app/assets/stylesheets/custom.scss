@@ -180,6 +180,13 @@ article{
   margin-bottom: 10px;
 }
 
+.subjectitem{
+  flex-wrap: nowrap;
+  display: flex;
+  padding-left: 0;
+  padding-right: 0;
+}
+
 .totalitem{
   border-bottom: solid 0.5px #888;
   flex-wrap: nowrap;

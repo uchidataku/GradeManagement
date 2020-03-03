@@ -132,10 +132,10 @@ ActiveRecord::Schema.define(version: 2020_02_16_050455) do
     t.string "school_name"
     t.string "school_year_id"
     t.date "birthday"
+    t.string "sex"
     t.bigint "cram_schoolhouse_id"
     t.string "firstname_kanji"
     t.string "lastname_kana"
-    t.string "sex"
     t.string "firstname_kana"
     t.string "term"
     t.string "image"
@@ -146,4 +146,5 @@ ActiveRecord::Schema.define(version: 2020_02_16_050455) do
 
   add_foreign_key "personal_achievement_tests", "users"
   add_foreign_key "report_cards", "users"
+  add_foreign_key "users", "cram_schoolhouses"
 end
