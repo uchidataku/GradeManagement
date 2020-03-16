@@ -7,7 +7,7 @@
     <header>
       <div class="registration_title">
         <h3>《定期考査登録》</h3>
-        <p>定期考査の結果を入力してください。</p>
+        <p>定期考査の写真を登録し、結果を入力してください。</p>
       </div>
     </header>
     <section>
@@ -16,6 +16,7 @@
           <div class="col-xs-12 col-md-3 item_leftbox">
             <div class="item">
               <h5><%= f.label :periodical_inspection_id, "定期考査選択" %></h5>
+              <small>※必須</small>
             </div>
           </div>
           <div class="col-xs-12 col-md-2 input_rightbox">
@@ -51,6 +52,18 @@
                                                       ["中学3年後期期末考査", 27]]
                                                       %>
             <% end %>
+          </div>
+          <div class="offset-md-7"></div>
+        </div>
+        <div class="row justify-content-center personal_achievement_tests_box">
+          <div class="col-xs-12 col-md-3 item_leftbox">
+            <div class="item">
+              <h5><%= f.label :picture, "写真登録" %></h5>
+              <small>※必須</small>
+            </div>
+          </div>
+          <div class="col-xs-12 col-md-2 input_rightbox">
+            <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
           </div>
           <div class="offset-md-7"></div>
         </div>
@@ -310,3 +323,4 @@
     </section>
   </article>
 </main>
+

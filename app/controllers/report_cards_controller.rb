@@ -8,6 +8,7 @@ class ReportCardsController < ApplicationController
       redirect_to current_user
     else
       flash[:danger] = "登録できませんでした"
+      redirect_to new_user_report_card_path
     end
   end
 
@@ -28,6 +29,7 @@ class ReportCardsController < ApplicationController
   private
    def record_params
      params.require(:report_card).permit(:schoolyear_and_schoolterm_id,
+                                         :picture,
                                          :japanese,
                                          :ja_column1,
                                          :ja_column2,

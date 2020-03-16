@@ -29,6 +29,7 @@ class PersonalAchievementTestsController < ApplicationController
   private
     def testpoint_params
       params.require(:personal_achievement_test).permit(:periodical_inspection_id,
+                                                        :picture,
                                                         :japanese,
                                                         :mathematics,
                                                         :english,
