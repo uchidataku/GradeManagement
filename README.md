@@ -1,6 +1,6 @@
 # GradeManagement
 学習塾運営に役立つ、生徒の成績管理を手助けするツールです。
-URL: http://www.grade-management.tk/
+URL: https://www.grade-management.tk
 
 ## 技術的ポイント
 - 本番環境にAWS EC2を使用
@@ -10,6 +10,7 @@ URL: http://www.grade-management.tk/
 - bootstrapを使ったレスポンシブデザイン化
 - Rspecによるテスト記述
 - Rubocopによるコードチェック
+- 常時SSL化
 
 ## 機能
 * ユーザー登録機能
